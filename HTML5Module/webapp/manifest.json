@@ -1,0 +1,209 @@
+{
+    "_version": "1.3.0",
+    "sap.app": {
+        "_version": "1.3.0",
+        "id": "baolblacovr",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "sap/opu/odata/bao/LB_LACOVR_B1_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "intent1": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "baolblacovr",
+                    "action": "Display",
+                    "title": "{{tileTitle}}",
+                    "subTitle": "{{tileSubTitle}}",
+                    "icon": "sap-icon://manager-insight"
+                }
+            }
+        },
+        "sourceTemplate": {
+            "id": "sap.ui.ui5-template-plugin.2masterdetail",
+            "version": "1.34.5"
+        }
+    },
+    "sap.ui": {
+        "_version": "1.3.0",
+        "technology": "UI5",
+        "icons": {
+            "icon": "sap-icon://detail-view",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_bluecrystal"
+        ]
+    },
+    "sap.ui5": {
+        "_version": "1.2.0",
+        "rootView": {
+            "viewName": "baolblacovr.view.App",
+            "type": "XML",
+            "id": "app"
+        },
+        "dependencies": {
+            "minUI5Version": "1.34.0",
+            "libs": {
+                "sap.m": {
+                    "minVersion": "1.34.0"
+                },
+                "sap.ui.core": {
+                    "minVersion": "1.34.0"
+                },
+                "sap.ui.comp": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "baolblacovr.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "settings": {
+                    "metadataUrlParams": {
+                        "sap-documentation": "heading"
+                    }
+                }
+            }
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "baolblacovr.view",
+                "controlId": "idAppControl",
+                "controlAggregation": "detailPages",
+                "bypassed": {
+                    "target": [
+                        "master",
+                        "notFound"
+                    ]
+                },
+                "async": true
+            },
+            "routes": [
+                {
+                    "pattern": "",
+                    "name": "master",
+                    "target": [
+                        "object",
+                        "master"
+                    ]
+                },
+                {
+                    "pattern": "BankAccountContractSet/{objectId}",
+                    "name": "object",
+                    "target": [
+                        "master",
+                        "object"
+                    ]
+                },
+                {
+                    "name": "transaction",
+                    "pattern": "BankAccountEntrySet/{idkey}",
+                    "greedy": false,
+                    "target": [
+                        "object",
+                        "transaction"
+                    ]
+                },
+                {
+                    "name": "prenote",
+                    "pattern": "BankAccountPrenoteEntrySet/{idkeypn}",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "object",
+                        "prenote"
+                    ]
+                }
+            ],
+            "targets": {
+                "master": {
+                    "viewName": "Master",
+                    "viewLevel": 1,
+                    "viewId": "master",
+                    "controlAggregation": "masterPages"
+                },
+                "object": {
+                    "viewName": "Detail",
+                    "viewId": "detail",
+                    "viewLevel": 2
+                },
+                "detailObjectNotFound": {
+                    "viewName": "DetailObjectNotFound",
+                    "viewId": "detailObjectNotFound"
+                },
+                "detailNoObjectsAvailable": {
+                    "viewName": "DetailNoObjectsAvailable",
+                    "viewId": "detailNoObjectsAvailable"
+                },
+                "notFound": {
+                    "viewName": "NotFound",
+                    "viewId": "notFound"
+                },
+                "transaction": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "Transaction",
+                    "viewId": "transaction",
+                    "viewLevel": 3
+                },
+                "prenote": {
+                    "viewType": "XML",
+                    "transition": "",
+                    "clearControlAggregation": "",
+                    "viewName": "Prenote",
+                    "viewId": "prenote",
+                    "viewLevel": 3
+                }
+            }
+        }
+    },
+    "sap.platform.hcp": {
+        "uri": "",
+        "_version": "1.1.0"
+    },
+    "sap.platform.abap": {
+        "uri": "/sap/bc/ui5_ui5/bao/bp_30grp",
+        "_version": "1.1.0"
+    },
+    "sap.cloud": {
+        "service": "baolblacovr"
+    }
+}

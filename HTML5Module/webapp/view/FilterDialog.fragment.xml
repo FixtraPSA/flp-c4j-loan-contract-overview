@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<ViewSettingsDialog confirm="handleFilterDialogConfirm" resetFilters="handleFilterDialogReset">
+		<filterItems>
+			<ViewSettingsCustomItem text="{i18n>amount}" key="AccountCurrencyAmount">
+				<customControl>
+					<f:SimpleForm layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4" emptySpanL="1" emptySpanM="1" columnsL="7" columnsM="7">
+						<f:content>
+							<Label text="{i18n>MoreThan}"/>
+							<Input id="idMorethanAmount" type="Number" placeholder="{i18n>EnterAmount}" change="handleFilterInputChange"/>
+							<Label text="{i18n>LessThan}"/>
+							<Input id="idLessThanAmount" type="Number" placeholder="{i18n>EnterAmount}" change="handleFilterInputChange"/>
+							<Label text="{i18n>Between}"/>
+							<Input id="idBTLess" type="Number" placeholder="{i18n>EnterAmount}" change="handleFilterInputChange"/>
+							<Input id="idBTBig" type="Number" placeholder="{i18n>EnterAmount}" change="handleFilterInputChange"/>
+						</f:content>
+					</f:SimpleForm>
+				</customControl>
+			</ViewSettingsCustomItem>
+			<ViewSettingsCustomItem text="{i18n>bookingdate}" key="PostingDate">
+				<customControl>
+					<f:SimpleForm layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4" emptySpanL="1" emptySpanM="1" columnsL="7" columnsM="7">
+						<f:content>
+							<Label text="{i18n>PostingDateLaterThan}"/>
+							<DatePicker id="DPstartDate" valueFormat="yyyyMMdd" displayFormat="yyyy-MM-dd" change="handleFilterInputChange"/>
+						</f:content>
+					</f:SimpleForm>
+				</customControl>
+			</ViewSettingsCustomItem>
+			<ViewSettingsCustomItem text="{i18n>PaymentNote}" key="PostingDate">
+				<customControl>
+					<f:SimpleForm layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4" emptySpanL="1" emptySpanM="1"
+						columnsL="7" columnsM="7">
+						<f:content>
+							<Label text="{i18n>PaymentNoteContains}"/>
+							<Input id="idPaymentNote" change="handleFilterInputChange"/>
+						</f:content>
+					</f:SimpleForm>
+				</customControl>
+			</ViewSettingsCustomItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,49 @@
+{
+  "name": "html5module",
+  "version": "0.0.1",
+  "description": "A Fiori application.",
+  "private": true,
+  "sapux": true,
+  "sapuxLayer": "CUSTOMER_BASE",
+  "keywords": [
+      "ui5",
+      "openui5",
+      "sapui5"
+  ],
+  "main": "webapp/index.html",
+  "devDependencies": {
+    "@ui5/cli": "^3",
+    "@ui5/fs": "^2.0.6",
+    "@ui5/logger": "^2.0.1",
+    "@sap/ux-ui5-tooling": "^1",
+    "@sap-ux/ui5-middleware-fe-mockserver": "2",
+    "rimraf": "3.0.2",
+    "@sap/ux-specification": "latest",
+    "@sap/ui5-builder-webide-extension": "^1.1.8",
+    "ui5-task-zipper": "^0.5.0",
+    "mbt": "^1.2.18"
+  },
+  "scripts": {
+    "start": "fiori run --open \"test/flpSandbox.html?sap-client=110&sap-ui-xx-viewCache=false#baolblacovr-display\"",
+    "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-client=110&sap-ui-xx-viewCache=false#baolblacovr-display\"",
+    "buildui5": "ui5 build --config=ui5.yaml --clean-dest --dest dist",
+    "deploy": "fiori verify",
+    "deploy-config": "fiori add deploy-config",
+    "start-noflp": "fiori run --open \"index.html?sap-client=110&sap-ui-xx-viewCache=false\"",
+    "start-mock": "fiori run --config ./ui5-mock.yaml --open \"test/flpSandbox.html?sap-client=110&sap-ui-xx-viewCache=false#baolblacovr-display\"",
+    "start-variants-management": "fiori run --open \"preview.html?&sap-client=110&sap-ui-xx-viewCache=false&fiori-tools-rta-mode=true&sap-ui-rta-skip-flex-validation=true#preview-app\"",
+    "build:cf": "ui5 build preload --clean-dest --config ui5-deploy.yaml --include-task=generateManifestBundle generateCachebusterInfo",
+    "build": "npm run clean && ui5 build --include-task=generateManifestBundle generateCachebusterInfo && npm run zip",
+    "zip": "cd dist && npx bestzip ../HTML5Module-content.zip *",
+    "clean": "npx rimraf HTML5Module-content.zip dist"
+  },
+  "ui5": {
+      "dependencies": [
+          "@sap/ux-ui5-tooling",
+          "@sap-ux/ui5-middleware-fe-mockserver",
+          "@sap/ui5-builder-webide-extension",
+          "ui5-task-zipper",
+          "mbt"
+      ]
+  }
+}

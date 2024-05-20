@@ -1,0 +1,13 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleSortDialogConfirm">
+		<sortItems>
+			<ViewSettingsItem text="{i18n>bookingdate}" key="PostingDate" selected="true" />
+			<ViewSettingsItem text="{i18n>valuedate}" key="ValueDate" />
+			<ViewSettingsItem text="{i18n>createdat}" key="CreationDateTime" />
+			<ViewSettingsItem text="{i18n>amount}" key="AccountCurrencyAmount" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>
