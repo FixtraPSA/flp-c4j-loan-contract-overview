@@ -27,9 +27,6 @@
           <ObjectAttribute id="ClabeAccount_id"
             text="{ClabeAccount}"
             title="{i18n>CLABEAccount}" />
-          <ObjectAttribute id="IndirectAccount"
-            text="{IndirectAccount}"
-            title="{i18n>IndirectAccount}" />
           <!--<ObjectAttribute id="AlternativeID_id"
             text="{ClabeAccount}"
             title="{i18n>AlternativeID}" />-->
@@ -885,7 +882,7 @@
                 -->
             </f:SimpleForm>
           </IconTabFilter>
-          <!--<IconTabFilter key="Dispersion"
+          <IconTabFilter key="Dispersion"
             icon="sap-icon://supplier"
             tooltip="{i18n>detailIconTabBarDispersion}"
             text="{i18n>detailIconTabBarDispersion}">
@@ -908,7 +905,7 @@
                 customTextOff="{i18n>No}"/>
             </f:SimpleForm>
             <Table width="100%"
-              items="{vendors>/vendors}"
+              items="{Vendors>/data}"
               noDataText="{i18n>detailLineItemTableNoDataText}"
               busyIndicatorDelay="{detailView>/lineItemTableDelay}"
               class="sapUiResponsiveMargin">
@@ -938,14 +935,26 @@
               <items>
                 <ColumnListItem>
                   <cells>
-                    <Text text="{vendors>VendorName}" />
-                    <Text text="{vendors>VendorLastName}" />
-                    <Text text="{vendors>VendorLastName2}" />
-                    <Text text="{vendors>ClabeAccount}" />
-                    <Text text="{vendors>VendorRFC}" />
-                    <Text text="{vendors>VendorType}" />
+                    <Text text="{Vendors>VendorName}" />
+                    <Text text="{Vendors>VendorLastName}" />
+                    <Text text="{Vendors>VendorLastName2}" />
+                    <Text text="{Vendors>ClabeAccount}" />
+                    <Text text="{Vendors>VendorRFC}" />
+                    <Text text="{Vendors>VendorType}" />
+                    <ObjectNumber unit="{Vendors>DisbursementCurrency}"
+                      number="{
+                        path: 'Vendors>DisbursementAmount',
+                        type: 'sap.ui.model.odata.type.Decimal',
+                        constraints: {
+                          precision: 17,
+                          scale: 0,
+                          minimum: '0',
+                          minimumExclusive: true
+                        }
+                      }"/>
+                    
                     <Text text="{
-                      path: 'vendors>DisbursementAmount',
+                      path: 'Vendors>DisbursementAmount',
                       type: 'sap.ui.model.odata.type.Decimal',
                       constraints: {
                         precision: 17,
@@ -964,13 +973,22 @@
             tooltip="{i18n>detailIconTabBarCollaterals}"
             text="{i18n>detailIconTabBarCollaterals}">
             <Table width="100%"
-              items="{Collaterals>/Collaterals}"
+              items="{Collaterals>/data}"
               noDataText="{i18n>detailLineItemTableNoDataText}"
               busyIndicatorDelay="{detailView>/lineItemTableDelay}"
               class="sapUiResponsiveMargin">
               <columns>
                 <Column>
-                  <Label text="{i18n>ObjectNumber}" />
+                  <Label text="{i18n>ID}" />
+                </Column>
+                <Column>
+                  <Label text="{i18n>Type}" />
+                </Column>
+                <Column>
+                  <Label text="{i18n>Description}" />
+                </Column>
+                <Column hAlign="End">
+                  <Label text="{i18n>Amount}" />
                 </Column>
                 <Column>
                   <Label text="{i18n>AgreementNumber}" />
@@ -979,13 +997,24 @@
               <items>
                 <ColumnListItem>
                   <cells>
-                    <Text text="{Collaterals>ObjectNumber}" />
-                    <Text text="{Collaterals>AgreementNumber}" />
+                    <Text text="{Collaterals>CAGMTID}" />
+                    <Text text="{Collaterals>CAGMT_TYPE}" />
+                    <Text text="{Collaterals>CAGMT_TYP_DESC}" />
+                    <ObjectNumber textAlign="End"
+                      number="{
+                        path: 'Collaterals>ASMT_AMT',
+                        type: 'sap.ui.model.type.Float',
+                        formatOptions: {
+                          decimals: 2
+                        }
+                      }"
+                      unit="{Collaterals>ASMT_CURR}"/>
+                    <Text text="{Collaterals>LOANACCOUNTID}" />
                   </cells>
                 </ColumnListItem>
               </items>
             </Table>
-          </IconTabFilter>-->
+          </IconTabFilter>
         </items>
       </IconTabBar>
     </semantic:content>

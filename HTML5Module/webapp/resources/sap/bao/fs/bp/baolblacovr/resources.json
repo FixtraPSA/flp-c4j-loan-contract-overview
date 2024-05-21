@@ -1,0 +1,154 @@
+{
+    "resources": [
+        {
+            "name": "../../../../../baolblacovr/model/GroupSortState-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../../../baolblacovr/controller/App.controller.js"
+        },
+        {
+            "name": "../../../../../baolblacovr/neo-app.json"
+        },
+        {
+            "name": "../../../../../baolblacovr/manifest.json"
+        },
+        {
+            "name": "../../../../../baolblacovr/flp-config.json"
+        },
+        {
+            "name": "../../../../../baolblacovr/.user.project.json"
+        },
+        {
+            "name": "../../../../../baolblacovr/model/models.js"
+        },
+        {
+            "name": "../../../../../baolblacovr/model/grouper.js"
+        },
+        {
+            "name": "../../../../../baolblacovr/model/formatter.js"
+        },
+        {
+            "name": "../../../../../baolblacovr/model/GroupSortState.js"
+        },
+        {
+            "name": "../../../../../baolblacovr/controller/Transaction.controller.js"
+        },
+        {
+            "name": "../../../../../baolblacovr/controller/Master.controller.js"
+        },
+        {
+            "name": "../../../../../baolblacovr/controller/ListSelector.js"
+        },
+        {
+            "name": "../../../../../baolblacovr/controller/ErrorHandler.js"
+        },
+        {
+            "name": "../../../../../baolblacovr/controller/Detail.controller.js"
+        },
+        {
+            "name": "../../../../../baolblacovr/controller/BaseController.js"
+        },
+        {
+            "name": "../../../../../baolblacovr/resources.json",
+            "merged": true
+        },
+        {
+            "name": "../../../../../baolblacovr/Component.js"
+        },
+        {
+            "name": "../../../../../baolblacovr/manifest-bundle.zip"
+        },
+        {
+            "name": "../../../../../baolblacovr/Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "../../../../../baolblacovr/model/grouper-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../../../baolblacovr/model/models-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../../../baolblacovr/model/formatter-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../../../baolblacovr/i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "../../../../../baolblacovr/controller/Transaction-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../../../baolblacovr/controller/Master-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../../../baolblacovr/controller/ListSelector-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../../../baolblacovr/controller/ErrorHandler-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../../../baolblacovr/controller/Detail-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../../../baolblacovr/controller/BaseController-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../../../baolblacovr/controller/App-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../../../baolblacovr/Component-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../../../sap-ui-version.json"
+        },
+        {
+            "name": "../../../../../baolblacovr/view/ViewSettingsDialog.fragment.xml"
+        },
+        {
+            "name": "../../../../../baolblacovr/view/Transaction.view.xml"
+        },
+        {
+            "name": "../../../../../baolblacovr/view/SortDialog.fragment.xml"
+        },
+        {
+            "name": "../../../../../baolblacovr/view/NotFound.view.xml"
+        },
+        {
+            "name": "../../../../../baolblacovr/view/Master.view.xml"
+        },
+        {
+            "name": "../../../../../baolblacovr/view/FilterDialog.fragment.xml"
+        },
+        {
+            "name": "../../../../../baolblacovr/view/DetailObjectNotFound.view.xml"
+        },
+        {
+            "name": "../../../../../baolblacovr/view/DetailNoObjectsAvailable.view.xml"
+        },
+        {
+            "name": "../../../../../baolblacovr/view/Detail.view.xml"
+        },
+        {
+            "name": "../../../../../baolblacovr/view/App.view.xml"
+        },
+        {
+            "name": "../../../../../baolblacovr/index.html"
+        },
+        {
+            "name": "../../../../../baolblacovr/.gitignore"
+        }
+    ]
+}

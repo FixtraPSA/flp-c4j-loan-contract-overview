@@ -337,9 +337,9 @@ sap.ui.define(
 		  var oView = this.getView(),
 			oElementBinding = oView.getElementBinding();
 		  // clear filter
-		  var oTable = this.byId("lineItemsListTransactions");
+		  var oTable = this.byId("transactionsTable");
 		  if (oTable) {
-			var oBinding = oTable.getBinding("items");
+			var oBinding = oTable.getBinding("rows");
 			oBinding.filter([]);
 		  }
 		  // No data for the binding
@@ -383,7 +383,7 @@ sap.ui.define(
 		  // Store original busy indicator delay for the detail view
 		  var iOriginalViewBusyDelay = this.getView().getBusyIndicatorDelay(),
 			oViewModel = this.getModel("detailView"),
-			oLineItemTable = this.byId("lineItemsListTransactions"),
+			oLineItemTable = this.byId("transactionsTable"),
 			iOriginalLineItemTableBusyDelay =
 			  oLineItemTable.getBusyIndicatorDelay();
   
@@ -503,7 +503,8 @@ sap.ui.define(
 				}
 			  }
 			  break;
-			/*case "Dispersion":
+			  
+			case "Dispersion":
 			// make the filter & sorter button disappeared.
 			this.getView().byId("idSortBT").setVisible(false);
 			this.getView().byId("idFilterBT").setVisible(false);
@@ -536,7 +537,7 @@ sap.ui.define(
 					this._loadModel(propertyName);
 					}
 				}
-				break;*/
+				break;
 			default:
 			  // make the filter & sorter button appeared for tab transactions.
 			  this.getView().byId("idSortBT").setVisible(false); //.setVisible(true);
@@ -723,7 +724,6 @@ sap.ui.define(
 		  return oDialog;
 		},
 		handleSortDialogConfirm: function (oEvent) {
-		  //var oTable = this.byId("lineItemsListTransactions"),
 		  var oTable = this.byId("transactionsTable"),
 			mParams = oEvent.getParameters(),
 			//oBinding = oTable.getBinding("items"),
@@ -741,7 +741,6 @@ sap.ui.define(
 		},
   
 		handleFilterDialogConfirm: function (oEvent) {
-		  //var oTable = this.byId("lineItemsListTransactions"),
 		  var oTable = this.byId("transactionsTable"),
 			// mParams = oEvent.getParameters(),
 			//oBinding = oTable.getBinding("items"),

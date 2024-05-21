@@ -76,6 +76,25 @@ sap.ui.define([], function () {
 			return "None";
 		},
 
+		formatPeriod: function(sPeriod) {
+			if (!sPeriod || sPeriod.substring(0, 1) !== "P") return sPeriod;
+			var sFactor = sPeriod.substring(1, sPeriod.length - 1),
+				sUnit = sPeriod.substring(sPeriod.length - 1),
+				oUnits = {
+					D: "Days",
+					W: "Weeks",
+					M: "Months",
+					Y: "Years",
+				},
+				sTextKey = oUnits[sUnit],
+				oBundle = sap.ui.getCore().getModel("i18n");
+			if (!sTextKey) {
+				return sPeriod;
+			}
+			var sText = oBundle.getText(sTextKey);
+			return `${sFactor} ${sText}`;
+		},
+
 		formatBoolean: function (bool, lblYes, lblNo) {
 			return (bool === true) ? lblYes : lblNo;
 		}
