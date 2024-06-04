@@ -13,6 +13,9 @@ modules:
     parameters:
       service-key:
         name: baolblacovr_html_repo_host-key
+  - name: corebanking01-destination-service
+    parameters:
+      content-target: true
   parameters:
     content:
       subaccount:
@@ -40,18 +43,26 @@ modules:
     build-result: resources
     requires:
     - artifacts:
-      - HTML5Module-content.zip
-      name: HTML5Module
+      - baolblacovr.zip
+      name: baolblacovr
       target-path: resources/
-- name: HTML5Module
+- name: baolblacovr
   type: html5
-  path: HTML5Module
+  path: baolblacovr
   build-parameters:
+    build-result: dist
     builder: custom
     commands:
-    - npm run build
+    - npm install
+    - npm run build:cf
     supported-platforms: []
 resources:
+- name: corebanking01-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: destination
+    service-name: corebanking01-destination-service
+    service-plan: lite
 - name: baolblacovr_html_repo_host
   type: org.cloudfoundry.managed-service
   parameters:
