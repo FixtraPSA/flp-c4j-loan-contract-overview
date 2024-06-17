@@ -19,9 +19,9 @@ sap.ui.define([], function () {
 		formatDate: function (oDate) {
 			if (oDate && oDate !== "00000000") {
 				var oYear = oDate.substring(0, 4);
-				if (oYear === "9999") {
-					oYear = "9998";
-				}				
+				//if (oYear === "9999") {
+				//	oYear = "9998";
+				//}				
 				// var oMonth = oDate.substring(4, 6) - 1;
 				var oMonth = oDate.substring(4, 6);				
 				var oDay = oDate.substring(6, 8);
