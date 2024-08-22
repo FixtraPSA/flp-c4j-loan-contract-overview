@@ -465,6 +465,12 @@
               <ObjectStatus text="{path:'SalesProductTxt'}" state="Information"/>
               <Label text="{i18n>Sector}"/>
               <ObjectStatus text="{path:'SectorSalesProductTxt'}" state="Information"/>
+              <Label text="{i18n>FinancialWriteOffStatusTxt}"/>
+              <ObjectStatus text="{path:'FinancialWriteOffStatusTxt'}" state="Information"/>
+              <Label text="{i18n>FinancialWriteOffDate}" visible="{= ${FinancialWriteOffStatus} === 'C' ? true : false }"/>
+              <ObjectStatus text="{path:'FinancialWriteOffDate'}" state="Information" visible="{= ${FinancialWriteOffStatus} === 'C' ? true : false }"/>
+              <Label text="{i18n>PaymentPromiseTxt}" visible="{= ${FinancialWriteOffStatus} === 'S' ? true : false }"/>
+              <ObjectStatus text="{path:'PaymentPromiseTxt'}" state="Information" visible="{= ${FinancialWriteOffStatus} === 'S' ? true : false }"/>
               <!--Additional Details - RIGHT Column-->
               <Toolbar visible="false"/>
               <Label text="{i18n>IndicatorFECI}"/>
