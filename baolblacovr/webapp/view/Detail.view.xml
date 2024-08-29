@@ -33,6 +33,7 @@
           <ObjectStatus id="LifeCycleStatusName" title="{i18n>LifeCycleStatusTxt}" text="{LifeCycleStatusTxt}" state="{= ${LifeCycleStatus} === '20' ? 'Warning' : ${LifeCycleStatus} === '30' ? 'Success' : 'Error' }" icon="{= ${LifeCycleStatus} === '20' ? 'sap-icon://warning2' : ${LifeCycleStatus} === '30' ? 'sap-icon://status-positive' : 'sap-icon://alert' }"/>
           <ObjectStatus id="AccountLocked" title="{i18n>LockStatus}" text="{i18n>Locked}" state="{= ${AccountLocked} === true ? 'Error' : 'Success' }" icon="{= ${AccountLocked} === true ? 'sap-icon://alert' : 'sap-icon://status-positive' }" visible="{AccountLocked}"/>
           <ObjectStatus id="CurrentPostingDate_id" title="{i18n>CurrentPostingDate}" text="{ path: 'CurrentPostingDate', formatter: '.formatter.formatDate'}" state="Information" active="true"/>
+          <ObjectStatus id="NextPaymentDate" title="{i18n>NextPaymentDate}" text="{path: 'NextPaymentDate', formatter: '.formatter.formatDate'}" state="Information" active="true"/>
           <ObjectStatus id="CAT_id" title="{i18n>CAT}" text="{CAT}%" state="Information" active="true"/>
         </statuses>
         <additionalNumbers>
@@ -58,7 +59,7 @@
 							</fb:filterGroupItems>
 						</fb:FilterBar>
             <!--END:Posting Date Filters-->
-            <t:Table id="transactionsTable" rows="{ path: 'Transactions', sorter: [ { path: 'CreationDateTime', descending: 'true' } ] }" busyIndicatorDelay="{detailView>/lineItemTableDelay}" noData="{i18n>detailTransactionsTableNoDataText}" rowSelectionChange="onPressTransaction" class="sapUiResponsiveMargin" selectionMode="Single" selectionBehavior="RowOnly" alternateRowColors="true" rowActionCount="1" threshold="100" visibleRowCount="50" visibleRowCountMode="Interactive" enableBusyIndicator="true">
+            <t:Table id="transactionsTable" rows="{ path: 'Transactions', sorter: [ { path: 'CreationDateTime', descending : true } ] }" busyIndicatorDelay="{detailView>/lineItemTableDelay}" noData="{i18n>detailTransactionsTableNoDataText}" rowSelectionChange="onPressTransaction" class="sapUiResponsiveMargin" selectionMode="Single" selectionBehavior="RowOnly" alternateRowColors="true" rowActionCount="1" threshold="100" visibleRowCount="50" visibleRowCountMode="Interactive" enableBusyIndicator="true">
               <t:extension>
                 <OverflowToolbar style="Clear">
                   <!--<Title id="title" text="{i18n>transactions}"/>-->
