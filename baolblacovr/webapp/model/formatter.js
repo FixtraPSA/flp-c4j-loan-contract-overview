@@ -38,15 +38,6 @@ sap.ui.define([], function () {
 				return oDate;
 			}
 		},
-		formatDateObject: function (oDate) {
-			if (oDate) {
-				var dateFormat = sap.ui.core.format.DateFormat.getDateInstance({
-					pattern: "dd/MM/YYYY"
-				});
-                return dateFormat.format(oDate, true);	
-			}
-            return oDate;
-		},
 		concatenatNotes: function (oObject) {
 			if (oObject) {
 				var oConcatenatedTx;
@@ -74,10 +65,6 @@ sap.ui.define([], function () {
 				}
 			}
 			return "None";
-		},
-
-		formatBoolean: function (bool, lblYes, lblNo) {
-			return (bool === true) ? lblYes : lblNo;
 		}
 	};
 

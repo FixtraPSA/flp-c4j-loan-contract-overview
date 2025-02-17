@@ -299,7 +299,7 @@ sap.ui.define([
 
 			// FA2A FioriAppToApp -> show only Bank Account of passed account number
 			var contractID = this._FA2A_getContractID();
-			if (contractID) {
+			if (contractID !== undefined) {
 				var accountID = contractID.split("-")[0];
 				var myFilter = [new sap.ui.model.Filter("BankAccountID", sap.ui.model.FilterOperator.EQ, accountID)];
 				this._oList.getBinding("items").filter(myFilter, "Application");

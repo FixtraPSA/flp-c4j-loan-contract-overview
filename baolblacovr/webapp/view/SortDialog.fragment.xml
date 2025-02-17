@@ -4,10 +4,10 @@
 	<ViewSettingsDialog
 		confirm="handleSortDialogConfirm">
 		<sortItems>
-			<ViewSettingsItem text="{i18n>bookingdate}" key="PostingDate" selected="true" />
-			<ViewSettingsItem text="{i18n>valuedate}" key="ValueDate" />
-			<ViewSettingsItem text="{i18n>createdat}" key="CreationDateTime" />
-			<ViewSettingsItem text="{i18n>amount}" key="AccountCurrencyAmount" />
+			<ViewSettingsItem text="Posting date" key="PostingDate" selected="true" />
+			<ViewSettingsItem text="Value Date" key="ValueDate" />
+			<ViewSettingsItem text="Created At" key="CreationDateTime" />
+			<ViewSettingsItem text="Amount" key="AccountCurrencyAmount" />
 		</sortItems>
 	</ViewSettingsDialog>
 </core:FragmentDefinition>
