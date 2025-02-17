@@ -17,7 +17,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/sap/opu/odata/bao/LB_LACOVR_B1_SRV/",
+        "uri": "sap/opu/odata/bao/LB_LACOVR_B1_SRV/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -26,7 +26,7 @@
         }
       },
       "utilitiesService": {
-        "uri": "/sap/opu/odata/bao/AM_BASIC1_UTIL_SRV/",
+        "uri": "sap/opu/odata/bao/AM_BASIC1_UTIL_SRV/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -219,5 +219,8 @@
         }
       }
     }
+  },
+  "sap.cloud": {
+    "service": "baolblacovr"
   }
 }
