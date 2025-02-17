@@ -1,82 +1,82 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar"
-	xmlns:sap.ui.layout.form="sap.ui.layout.form" controllerName="baolblacovr.controller.Transaction">
-	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="true" title="{i18n>transactiondetails} " busy="{detailView>/busy}"
-		busyIndicatorDelay="{detailView>/delay}">
-		<semantic:content>
-			<sap.ui.layout.form:SimpleForm breakpointM="800" editable="false" id="TransactionData" layout="ResponsiveGridLayout" labelMinWidth="400"  
-				labelSpanM="3" emptySpanL="2" emptySpanM="2" columnsL="2">
-				<sap.ui.layout.form:content>
-					<Label id="label_AccountNumber" text="{i18n>accountnumber}" width="100%"/>
-					<ObjectIdentifier id="BankAccountStandardID" title="{ContractID}"/>
-					<Label id="label_TransactionID" text="{i18n>transactionid}" width="100%"/>
-					<ObjectAttribute active="false" id="TransactionID" text="{TransactionID}"/>
-					<Label id="label_PaymentEntryTypeName" text="{i18n>type} " width="100%"/>
-					<ObjectAttribute active="false" id="PaymentEntryTypeName" text="{PaymentTypeTxt}"/>
-					<Label id="label_StatusName" text="{i18n>status} " width="100%"/>
-					<ObjectStatus id="StatusName" text="{StatusTxt}"
-						icon="{= ${Status} === '2' ? 'sap-icon://warning2' : ${Status} === '1' ? 'sap-icon://status-positive' : 'sap-icon://alert' }"
-						state="{= ${Status} === '2' ? 'Warning' : ${Status} === '1' ? 'Success' : 'Error' }"/>
-					<Label id="label_PaymentTransactionTypeName" text="{i18n>transactiontype}" width="100%"/>
-					<ObjectAttribute active="false" id="PaymentTransactionTypeName" text="{TransactionTypeTxt}"/>
-					<Label id="label_CommunicationChannelName" width="100%" text="{i18n>channel} "/>
-					<ObjectAttribute active="false" id="CommunicationChannelName" text="{ChannelTypeTxt}"/>
-					<Label id="label_CreationDateTime" text="{i18n>createdat} " width="100%"/>
-					<ObjectAttribute active="false" id="CreationDateTime"
-						text="{ path: 'CreationDateTime', type: 'sap.ui.model.type.DateTime', formatOptions: { pattern: 'dd/MM/YYYY HH:mm:ss' } }"/>
-					<Label id="label_CreationUserAccountID" width="100%" text="{i18n>createdby} "/>
-					<ObjectAttribute active="false" id="CreationUserAccountID" text="{CreationUserID}"/>
-					<Label id="label_PostingDate" width="100%" text="{i18n>postingdate} "/>
-					<ObjectAttribute active="false" id="PostingDate"
-						text="{ path: 'PostingDate', formatter: '.formatter.formatDate' }"/>
-					<Label id="label_ValueDate" text="{i18n>valuedate} " width="100%"/>
-					<ObjectAttribute active="false" id="ValueDate"
-						text="{ path: 'ValueDate', formatter: '.formatter.formatDate' }"/>
-					<Label id="label_BankAccountCurrencyAmount" text="{i18n>amount_accountcurrency_} " width="100%"/>
-					<ObjectNumber id="AccountCurrencyAmount"
-						number="{ path: 'AccountCurrencyAmount', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 } }"
-						unit="{AccountCurrency}"/>
-					<Label id="label_TransactionCurrencyAmount" text="{i18n>amount_transactioncurrency_} " width="100%"/>
-					<ObjectNumber id="TransactionCurrencyAmount"
-						number="{ path: 'TransactionCurrencyAmount', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 } }"
-						unit="{TransactionCurrency}"/>
-					<Label id="label_DebitIndicator" width="100%" text="{i18n>direction} "/>
-					<ObjectAttribute active="false" id="DebitIndicator" text="{= ${DebitIndicator} === true ? 'Debit' : 'Credit' }"/>
-					<Label id="label_ReturnAllowedIndicator" width="100%" text="{i18n>returnallowed} "/>
-					<ObjectAttribute active="false" id="ReturnAllowedIndicator" text="{= ${isReturnAllowed} === true ? 'Yes' : 'No' }"/>
-					<Label id="label_PendingSettlementEntryReferenceID" width="100%" text="{i18n>pendingsettlement} "/>
-					<ObjectAttribute active="false" id="PendingSettlementEntryReferenceID" text="{PendingSettlementReferenceID}"/>
-					<Label id="label_CancelledBankAccountEntryReference" text="{i18n>cancelledreference} " width="100%"/>
-					<ObjectAttribute active="false" id="CancelledBankAccountEntryReference" text="{CancelledTransactionReferenceID}"/>
-					<Label id="label_CancellationBankAccountEntryReference" text="{i18n>cancellationreference} " width="100%"/>
-					<ObjectAttribute active="false" id="CancellationBankAccountEntryReference" text="{CancellationTransactionReferenceID}"/>
-					<Label id="label_PaymentTransactionOrderID" text="{i18n>PaymentTransactionOrderID} " width="100%"/>
-					<ObjectAttribute active="false" id="PaymentTransactionOrderID" text="{PaymentTransactionOrderID}"/>
-					<Label id="label_BankAccountPrenoteEntryReferenceID" text="{i18n>BankAccountPrenoteEntryReferenceID} " width="100%"/>
-					<ObjectAttribute active="false" id="BankAccountPrenoteEntryReferenceID" text="{PrenoteReferenceID}"/>
-					<Label id="label_CCounterPartyBankAccountID" text="{i18n>CounterPartyBankAccountID} " width="100%"/>
-					<ObjectAttribute active="false" id="CounterPartyBankAccountID" text="{CounterPartyBankAccountID}"/>
-					<Label id="label_CounterPartyBankAccountHolder" text="{i18n>CounterPartyBankAccountHolder} " width="100%"/>
-					<ObjectAttribute active="false" id="CounterPartyBankAccountHolder" text="{CounterPartyBankAccountHolder}"/>
-				</sap.ui.layout.form:content>
-			</sap.ui.layout.form:SimpleForm>
-			<Table id="PaymentNotes" width="auto" items="{Notes}" updateFinished="onListUpdateFinished"
-				busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
-				<columns>
-					<Column>
-						<Text text="{i18n>paymentnotes} "/>
-					</Column>
-				</columns>
-				<items>
-					<ColumnListItem>
-						<cells>
-							<ObjectIdentifier title="{NoteTypeTxt}" text="{NoteContent}"/>
-						</cells>
-					</ColumnListItem>
-				</items>
-			</Table>
-		</semantic:content>
-		<semantic:cancelAction>
-			<semantic:CancelAction id="cancel" press="onCancel"/>
-		</semantic:cancelAction>
-	</semantic:DetailPage>
+  xmlns:sap.ui.layout.form="sap.ui.layout.form" controllerName="baolblacovr.controller.Transaction">
+  <semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="true" title="{i18n>transactiondetails} " busy="{detailView>/busy}"
+    busyIndicatorDelay="{detailView>/delay}">
+    <semantic:content>
+      <sap.ui.layout.form:SimpleForm breakpointM="800" editable="false" id="TransactionData" layout="ResponsiveGridLayout" labelMinWidth="400"  
+        labelSpanM="3" emptySpanL="2" emptySpanM="2" columnsL="2">
+        <sap.ui.layout.form:content>
+          <Label id="label_AccountNumber" text="{i18n>accountnumber}" width="100%"/>
+          <ObjectIdentifier id="BankAccountStandardID" title="{ContractID}"/>
+          <Label id="label_TransactionID" text="{i18n>transactionid}" width="100%"/>
+          <ObjectAttribute active="false" id="TransactionID" text="{TransactionID}"/>
+          <Label id="label_PaymentEntryTypeName" text="{i18n>type} " width="100%"/>
+          <ObjectAttribute active="false" id="PaymentEntryTypeName" text="{PaymentTypeTxt}"/>
+          <Label id="label_StatusName" text="{i18n>status} " width="100%"/>
+          <ObjectStatus id="StatusName" text="{StatusTxt}"
+            icon="{= ${Status} === '2' ? 'sap-icon://warning2' : ${Status} === '1' ? 'sap-icon://status-positive' : 'sap-icon://alert' }"
+            state="{= ${Status} === '2' ? 'Warning' : ${Status} === '1' ? 'Success' : 'Error' }"/>
+          <Label id="label_PaymentTransactionTypeName" text="{i18n>transactiontype}" width="100%"/>
+          <ObjectAttribute active="false" id="PaymentTransactionTypeName" text="{TransactionTypeTxt}"/>
+          <Label id="label_CommunicationChannelName" width="100%" text="{i18n>channel} "/>
+          <ObjectAttribute active="false" id="CommunicationChannelName" text="{ChannelTypeTxt}"/>
+          <Label id="label_CreationDateTime" text="{i18n>createdat} " width="100%"/>
+          <ObjectAttribute active="false" id="CreationDateTime"
+            text="{ path: 'CreationDateTime', type: 'sap.ui.model.type.DateTime', formatOptions: { pattern: 'dd/MM/YYYY HH:mm:ss' } }"/>
+          <Label id="label_CreationUserAccountID" width="100%" text="{i18n>createdby} "/>
+          <ObjectAttribute active="false" id="CreationUserAccountID" text="{CreationUserID}"/>
+          <Label id="label_PostingDate" width="100%" text="{i18n>postingdate} "/>
+          <ObjectAttribute active="false" id="PostingDate"
+            text="{ path: 'PostingDate', formatter: '.formatter.formatDate' }"/>
+          <Label id="label_ValueDate" text="{i18n>valuedate} " width="100%"/>
+          <ObjectAttribute active="false" id="ValueDate"
+            text="{ path: 'ValueDate', formatter: '.formatter.formatDate' }"/>
+          <Label id="label_BankAccountCurrencyAmount" text="{i18n>amount_accountcurrency_} " width="100%"/>
+          <ObjectNumber id="AccountCurrencyAmount"
+            number="{ path: 'AccountCurrencyAmount', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 } }"
+            unit="{AccountCurrency}"/>
+          <Label id="label_TransactionCurrencyAmount" text="{i18n>amount_transactioncurrency_} " width="100%"/>
+          <ObjectNumber id="TransactionCurrencyAmount"
+            number="{ path: 'TransactionCurrencyAmount', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 } }"
+            unit="{TransactionCurrency}"/>
+          <Label id="label_DebitIndicator" width="100%" text="{i18n>direction} "/>
+          <ObjectAttribute active="false" id="DebitIndicator" text="{= ${DebitIndicator} === true ? 'Debit' : 'Credit' }"/>
+          <Label id="label_ReturnAllowedIndicator" width="100%" text="{i18n>returnallowed} "/>
+          <ObjectAttribute active="false" id="ReturnAllowedIndicator" text="{= ${isReturnAllowed} === true ? 'Yes' : 'No' }"/>
+          <Label id="label_PendingSettlementEntryReferenceID" width="100%" text="{i18n>pendingsettlement} "/>
+          <ObjectAttribute active="false" id="PendingSettlementEntryReferenceID" text="{PendingSettlementReferenceID}"/>
+          <Label id="label_CancelledBankAccountEntryReference" text="{i18n>cancelledreference} " width="100%"/>
+          <ObjectAttribute active="false" id="CancelledBankAccountEntryReference" text="{CancelledTransactionReferenceID}"/>
+          <Label id="label_CancellationBankAccountEntryReference" text="{i18n>cancellationreference} " width="100%"/>
+          <ObjectAttribute active="false" id="CancellationBankAccountEntryReference" text="{CancellationTransactionReferenceID}"/>
+          <Label id="label_PaymentTransactionOrderID" text="{i18n>PaymentTransactionOrderID} " width="100%"/>
+          <ObjectAttribute active="false" id="PaymentTransactionOrderID" text="{PaymentTransactionOrderID}"/>
+          <Label id="label_BankAccountPrenoteEntryReferenceID" text="{i18n>BankAccountPrenoteEntryReferenceID} " width="100%"/>
+          <ObjectAttribute active="false" id="BankAccountPrenoteEntryReferenceID" text="{PrenoteReferenceID}"/>
+          <Label id="label_CCounterPartyBankAccountID" text="{i18n>CounterPartyBankAccountID} " width="100%"/>
+          <ObjectAttribute active="false" id="CounterPartyBankAccountID" text="{CounterPartyBankAccountID}"/>
+          <Label id="label_CounterPartyBankAccountHolder" text="{i18n>CounterPartyBankAccountHolder} " width="100%"/>
+          <ObjectAttribute active="false" id="CounterPartyBankAccountHolder" text="{CounterPartyBankAccountHolder}"/>
+        </sap.ui.layout.form:content>
+      </sap.ui.layout.form:SimpleForm>
+      <Table id="PaymentNotes" width="auto" items="{Notes}" updateFinished="onListUpdateFinished"
+        busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
+        <columns>
+          <Column>
+            <Text text="{i18n>paymentnotes} "/>
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem>
+            <cells>
+              <ObjectIdentifier title="{NoteTypeTxt}" text="{NoteContent}"/>
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </semantic:content>
+    <semantic:cancelAction>
+      <semantic:CancelAction id="cancel" press="onCancel"/>
+    </semantic:cancelAction>
+  </semantic:DetailPage>
 </mvc:View>

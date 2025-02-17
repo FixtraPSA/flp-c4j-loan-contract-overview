@@ -2,103 +2,105 @@
 <edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
     <edmx:DataServices m:DataServiceVersion="2.0">
         <Schema Namespace="BAO.LB_LACOVR_B1_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-            <EntityType Name="OpenItem" sap:label="Open Item" sap:content-version="1">
+            <EntityType Name="OpenItem" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="ContractID"/>
                     <PropertyRef Name="OpenItemID"/>
                 </Key>
-                <Property Name="ContractID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Bank Account ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="OpenItemID" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Open Item ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Status Code" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="StatusTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="StatusCategory" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Status Category" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="DueDate" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Due Date" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="ReceivableType" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Receivable Type Code" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="ReceivableTypeTxt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Receivable Type" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="ReceivableDescription" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Receivable Description" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ContractID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="OpenItemID" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="StatusTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="StatusCategory" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="DueDate" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ReceivableType" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ReceivableTypeTxt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ReceivableDescription" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
                 <Property Name="DueDateShift" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
                 <Property Name="BillingAmount" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
                 <Property Name="DueDateFormat" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
                 <Property Name="DueDateShiftFormat" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
             </EntityType>
-            <EntityType Name="OtherParty" sap:label="Other Party" sap:content-version="1">
+            <EntityType Name="OtherParty" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="ContractID"/>
                     <PropertyRef Name="PartyTypeCode"/>
                     <PropertyRef Name="PartyID"/>
                 </Key>
-                <Property Name="ContractID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Contract ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="PartyTypeCode" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Party Type Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PartyID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Party ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PartyTypeName" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Party Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PartyName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Party Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ContractID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="PartyTypeCode" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PartyID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PartyTypeName" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PartyName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
-            <EntityType Name="Contract" sap:label="Loan Contract Account" sap:content-version="1">
+            <EntityType Name="Contract" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="ID"/>
                 </Key>
-                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Contract ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="BankAccountID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Bank Account ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="BankRoutingID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Bank Routing ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="BankCountryCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Bank Country Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="BorrowerID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Borrower ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="BorrowerTxt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Borrower Description" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="BorrowerName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Borrower Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
-                <Property Name="BorrowerAddress" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Borrower Address" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="ManagerID" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Contract Manager ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="ManagerTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Contract Manager Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="BankPostingArea" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Bank Posting Area" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="BankPostingAreaTxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Bank Posting Area Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="ProductID" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Product ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="ProductTxt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Product Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Purpose" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Purpose Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="BankAccountID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BankRoutingID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BankCountryCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BorrowerID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="BorrowerTxt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="BorrowerName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="BorrowerAddress" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ManagerID" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ManagerTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BankPostingArea" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BankPostingAreaTxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProductID" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProductTxt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Purpose" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ClabeAccount" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="InitialLoanAmount" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="Initial Loan Amount" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
-                <Property Name="EffectiveCapital" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="Effective Capital" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="StartDate" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="LifeCycleStatus" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Life Cycle Status Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="LifeCycleStatusTxt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Life Cycle Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CreationDateTime" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Creation Date Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CreationUserID" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Creation User ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="LastChangeDateTime" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Last Change Date Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="LastChangeUserID" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Last Change User ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NominalInterestRate" Type="Edm.Decimal" Precision="17" Scale="6" sap:unicode="false" sap:label="Current Valid Nominal Interest Rate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="InitialLoanAmount" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="EffectiveCapital" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StartDate" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LifeCycleStatus" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LifeCycleStatusTxt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreationUserID" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastChangeDateTime" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastChangeUserID" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NominalInterestRate" Type="Edm.Decimal" Precision="17" Scale="6" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="RepaymentFrequency" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="RepaymentAmount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="Current Agreed Repayment Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="RepaymentPercentage" Type="Edm.Decimal" Precision="17" Scale="6" sap:unicode="false" sap:label="Current Agreed Repayment Percentage" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="LimitTotalAmount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="Limit Total Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="DirectDebitBankAccountHolder" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Direct Debit Bank Account Holder Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="DirectDebitBankAccount" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Direct Debit Bank Account Standard ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="DirectDebitBankAccountID" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Direct Debit Bank Account ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="DirectDebitBankRoutingID" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Direct Debit Bank Routing ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="DirectDebitBankCountryCode" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Direct Debit Bank Country Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TermSpecificationStartDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Term Specification Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TermSpecificationEndDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Term Specification End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TermSpecificationValidityPeriodDuration" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Term Specification Validity Period Duration" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TermSpecificationValidityPeriodDurationM" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Term Specification Validity Period Duration (No. of Months)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TermAgreementCommittedCapitalAmount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="Term Agreement Committed Capital Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TermAgreementFixingPeriodStartDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Term Agreement Fixing Period Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TermAgreementFixingPeriodEndDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Term Agreement Fixing Period End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PaymentPlanStartDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Payment Plan Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PaymentPlanEndDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Payment Plan End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PaymentPlanRemainingDebtAmount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="Payment Plan Remaining Debit Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="EffectiveYieldPercentage" Type="Edm.Decimal" Precision="17" Scale="6" sap:unicode="false" sap:label="Effective Yield Percentage" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="EffectiveYieldCalculationReason" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Effective Yield Calculation Reason Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="EffectiveYieldCalculationReasonTxt" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Effective Yield Calculation Reason" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="EffectiveYieldCalculationMethod" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Effective Yield Calculation Method Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="EffectiveYieldCalculationMethodTxt" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Effective Yield Calculation Method" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="EffectiveYieldValidityStartDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Effective Yield Validity Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="EffectiveYieldCalculationPeriodStartDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Effective Yield Calculation Period Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="EffectiveYieldCalculationPeriodEndDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Effective Yield Calculation Period End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CurrentPostingDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Current Posting Date (YYYYMMDD)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CurrentOpenItemsAmount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="Current Open ItemsAmount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="OutstandingBalance" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="Outstanding Balance" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="AccountLocked" Type="Edm.Boolean" sap:unicode="false" sap:label="Indicator that Posting Lock exists" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="MasterContractNo" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Master Contract Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="MasterContractID" Type="Edm.String" MaxLength="32" sap:unicode="false" sap:label="Master Contract ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RepaymentAmount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RepaymentPercentage" Type="Edm.Decimal" Precision="17" Scale="6" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LimitTotalAmount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DirectDebitBankAccountHolder" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DirectDebitBankAccount" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DirectDebitBankAccountID" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DirectDebitBankRoutingID" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DirectDebitBankCountryCode" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TermSpecificationStartDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TermSpecificationEndDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TermSpecificationValidityPeriodDuration" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TermSpecificationValidityPeriodDurationM" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TermAgreementCommittedCapitalAmount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TermAgreementFixingPeriodStartDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TermAgreementFixingPeriodEndDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PaymentPlanStartDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PaymentPlanEndDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PaymentPlanRemainingDebtAmount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EffectiveYieldPercentage" Type="Edm.Decimal" Precision="17" Scale="6" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EffectiveYieldCalculationReason" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EffectiveYieldCalculationReasonTxt" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EffectiveYieldCalculationMethod" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EffectiveYieldCalculationMethodTxt" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EffectiveYieldValidityStartDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EffectiveYieldCalculationPeriodStartDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EffectiveYieldCalculationPeriodEndDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrentPostingDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrentOpenItemsAmount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OutstandingBalance" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AccountLocked" Type="Edm.Boolean" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MasterContractNo" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MasterContractID" Type="Edm.String" MaxLength="32" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="InterestFrequencyType" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CapitalFrequencyType" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="CAT" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="PortfolioType" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="PortfolioTypeTxt" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -112,155 +114,160 @@
                 <Property Name="ObservationKeyTxt" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="PaymentForm" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="PaymentFormTxt" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="EventID" Type="Edm.Guid" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="BalanceToBeDistributed" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="TotalOfPayments" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="RepaymentFrequencyTxt" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="LoanApplicationID" Type="Edm.String" MaxLength="36" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="IsExternalDisbursement" Type="Edm.Boolean" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NextPaymentPrincipalAmt" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="NextPaymentInterestAmt" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="NextPaymentInterestVATAmt" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="NextExemptInterestAmount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="NumberOfOutstandingAmort" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="InsCertificate" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="IndirectAccount" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="PaymentPlanControl" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <NavigationProperty Name="OpenItems" Relationship="BAO.LB_LACOVR_B1_SRV.OpenItems" FromRole="FromRole_OpenItems" ToRole="ToRole_OpenItems"/>
-                <NavigationProperty Name="OtherPartys" Relationship="BAO.LB_LACOVR_B1_SRV.OtherPartys" FromRole="FromRole_OtherPartys" ToRole="ToRole_OtherPartys"/>
-                <NavigationProperty Name="Balances" Relationship="BAO.LB_LACOVR_B1_SRV.Balances" FromRole="FromRole_Balances" ToRole="ToRole_Balances"/>
-                <NavigationProperty Name="Transactions" Relationship="BAO.LB_LACOVR_B1_SRV.Transactions" FromRole="FromRole_Transactions" ToRole="ToRole_Transactions"/>
-                <NavigationProperty Name="PaymentPlan" Relationship="BAO.LB_LACOVR_B1_SRV.PaymentPlan" FromRole="FromRole_PaymentPlan" ToRole="ToRole_PaymentPlan"/>
-                <NavigationProperty Name="Conditions" Relationship="BAO.LB_LACOVR_B1_SRV.Conditions" FromRole="FromRole_Conditions" ToRole="ToRole_Conditions"/>
+                <Property Name="SalesProduct" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesProductTxt" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SectorSalesProduct" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SectorSalesProductTxt" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IndicatorFECI" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IndicatorFECITxt" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IndicatorPreferential" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IndicatorPreferentialTxt" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RolloverCategory" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RolloverCategoryTxt" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RolloverDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="InterestFrequencyTypeTxt" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CapitalFrequencyTypeTxt" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CalculatedInterestOnArrears" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="Calculo Interés Moratorio" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CalculatedOverdueInterest" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="Calculo Interés Vencido" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LoanClassification" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="RegionCode" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
                 <NavigationProperty Name="PaymentParty" Relationship="BAO.LB_LACOVR_B1_SRV.PaymentParties" FromRole="FromRole_PaymentParties" ToRole="ToRole_PaymentParties"/>
+                <NavigationProperty Name="Conditions" Relationship="BAO.LB_LACOVR_B1_SRV.Conditions" FromRole="FromRole_Conditions" ToRole="ToRole_Conditions"/>
+                <NavigationProperty Name="PaymentPlan" Relationship="BAO.LB_LACOVR_B1_SRV.PaymentPlan" FromRole="FromRole_PaymentPlan" ToRole="ToRole_PaymentPlan"/>
+                <NavigationProperty Name="Transactions" Relationship="BAO.LB_LACOVR_B1_SRV.Transactions" FromRole="FromRole_Transactions" ToRole="ToRole_Transactions"/>
+                <NavigationProperty Name="Balances" Relationship="BAO.LB_LACOVR_B1_SRV.Balances" FromRole="FromRole_Balances" ToRole="ToRole_Balances"/>
+                <NavigationProperty Name="OtherPartys" Relationship="BAO.LB_LACOVR_B1_SRV.OtherPartys" FromRole="FromRole_OtherPartys" ToRole="ToRole_OtherPartys"/>
+                <NavigationProperty Name="OpenItems" Relationship="BAO.LB_LACOVR_B1_SRV.OpenItems" FromRole="FromRole_OpenItems" ToRole="ToRole_OpenItems"/>
             </EntityType>
-            <EntityType Name="Balance" sap:label="Loan Balance" sap:content-version="1">
+            <EntityType Name="Balance" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="ID"/>
                     <PropertyRef Name="Code"/>
                 </Key>
-                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Contract ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Balance Code" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="Name" Type="Edm.String" MaxLength="200" sap:unicode="false" sap:label="Balance Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Amount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="Balance Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="200" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Amount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
-            <EntityType Name="Transaction" sap:label="Loan Transaction" sap:content-version="1">
+            <EntityType Name="Transaction" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="ContractID"/>
                     <PropertyRef Name="TransactionID"/>
                 </Key>
-                <Property Name="ContractID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Bank Account ID" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="TransactionID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Transaction ID" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="ItemType" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Item Type Code" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="ItemTypeTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Item Type" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="PaymentType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Payment Type Code" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="PaymentTypeTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Payment Typ" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="TransactionType" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Transaction Type Code" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="TransactionTypeTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Transaction Type" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="ChannelType" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Channel Type Code" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="ChannelTypeTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Channel Type" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Status Code" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="StatusTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="CreationDateTime" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Creation Date Time" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="CreationUserID" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Creation User ID" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="LastChangeDateTime" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Last Change Date Time" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="LastChangeUserID" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Last Change User ID" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="PostingDate" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Posting Date" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="ValueDate" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Value Date" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="DebitIndicator" Type="Edm.Boolean" sap:unicode="false" sap:label="Debit" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="AccountCurrencyAmount" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="Transaction Amount in Account Currency" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="AccountCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Account Currency" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="TransactionCurrencyAmount" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="Transaction Amount" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Transaction Currency" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="ExchangeRateType" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Exchange Rate Type Code" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="ExchangeRateTypeTxt" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Exchange Rate Type" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="ExchangeRate" Type="Edm.Decimal" Precision="13" Scale="6" sap:unicode="false" sap:label="Exchange Rate" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="CounterPartyBankAccountID" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Counter Party Bank Account ID" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="CounterPartyBankAccountHolder" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Counter Party Bank Account Holder Name" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="PaymentTransactionOrderID" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Payment Transaction Order ID" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="PaymentNotes" Type="Edm.String" MaxLength="900" sap:unicode="false" sap:label="Payment Notes" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="isReturnAllowed" Type="Edm.Boolean" sap:unicode="false" sap:label="Return Allowed" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="isCancellationDocument" Type="Edm.Boolean" sap:unicode="false" sap:label="Cancellation Document" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="isCancellationStatmentIncluded" Type="Edm.Boolean" sap:unicode="false" sap:label="Cancellation Statment Included" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="PrenoteReferenceID" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Prenote Reference ID" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="PendingSettlementReferenceID" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Pending Settlement Reference ID" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="CancelledTransactionReferenceID" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Cancelled Transaction Reference ID" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="CancellationTransactionReferenceID" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Cancellation Transaction Reference ID" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="BeginningBalance" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="EndingBalance" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContractID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TransactionID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemType" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemTypeTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PaymentType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PaymentTypeTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TransactionType" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TransactionTypeTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ChannelType" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ChannelTypeTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="StatusTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreationUserID" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangeDateTime" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangeUserID" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PostingDate" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ValueDate" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DebitIndicator" Type="Edm.Boolean" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="AccountCurrencyAmount" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="AccountCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TransactionCurrencyAmount" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ExchangeRateType" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ExchangeRateTypeTxt" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ExchangeRate" Type="Edm.Decimal" Precision="13" Scale="6" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CounterPartyBankAccountID" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CounterPartyBankAccountHolder" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PaymentTransactionOrderID" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PaymentNotes" Type="Edm.String" MaxLength="900" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="isReturnAllowed" Type="Edm.Boolean" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="isCancellationDocument" Type="Edm.Boolean" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="isCancellationStatmentIncluded" Type="Edm.Boolean" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PrenoteReferenceID" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PendingSettlementReferenceID" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CancelledTransactionReferenceID" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CancellationTransactionReferenceID" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false"/>
                 <NavigationProperty Name="Notes" Relationship="BAO.LB_LACOVR_B1_SRV.Notes" FromRole="FromRole_Notes" ToRole="ToRole_Notes"/>
             </EntityType>
-            <EntityType Name="PaymentNote" sap:label="Loan Transaction Payment Note" sap:content-version="1">
+            <EntityType Name="PaymentNote" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="ContractID"/>
                     <PropertyRef Name="TransactionID"/>
                     <PropertyRef Name="NoteType"/>
                 </Key>
-                <Property Name="ContractID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Bank Account ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TransactionID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Transaction ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NoteType" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Payment Note Type (Code)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NoteTypeTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Payment Note Type (Name)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NoteContent" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Payment Note Content" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ContractID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TransactionID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NoteType" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NoteTypeTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NoteContent" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
-            <EntityType Name="PaymentPlanItem" sap:label="Loan Payment Plan Item" sap:content-version="1">
+            <EntityType Name="PaymentPlanItem" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="ContractID"/>
                     <PropertyRef Name="ItemID"/>
                 </Key>
-                <Property Name="ContractID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Bank Account ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="ItemID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Transaction ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Date" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Category Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CategoryTxt" Type="Edm.String" Nullable="false" MaxLength="300" sap:unicode="false" sap:label="Category" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="RemainingDebitAmount" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="Loan Contract Remaining Debit Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ContractID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ItemID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Date" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CategoryTxt" Type="Edm.String" Nullable="false" MaxLength="300" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RemainingDebitAmount" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
-            <EntityType Name="Condition" sap:label="Loan Pricing and Payment Conditions" sap:content-version="1">
+            <EntityType Name="Condition" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="ContractID"/>
                     <PropertyRef Name="ConditionID"/>
                     <PropertyRef Name="ItemNo"/>
                 </Key>
-                <Property Name="ContractID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Contract ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="ConditionID" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Condition Item ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="ItemNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Condition Item No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Condition Category" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CategoryTxt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Condition Category Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Condition Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TypeTxt" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Condition Type Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="DateValidFrom" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Condition Valid From Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="DateValidTo" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Condition Valid To Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Amount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="Condition as Amount Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="AmountCurrency" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Currency for Condition as Amount Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Percentage" Type="Edm.Decimal" Precision="17" Scale="10" sap:unicode="false" sap:label="Condition as Percentage Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="ReferenceInterestCode" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Reference Interest Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="ReferenceInterestValue" Type="Edm.Decimal" Precision="17" Scale="6" sap:unicode="false" sap:label="Reference Interest Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="ReferenceInterestMargin" Type="Edm.Decimal" Precision="17" Scale="6" sap:unicode="false" sap:label="Reference Interest Margin" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="isZEROCondition" Type="Edm.Boolean" sap:unicode="false" sap:label="Indicator that Condition is a ZERO condition" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ContractID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ConditionID" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItemNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CategoryTxt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TypeTxt" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DateValidFrom" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DateValidTo" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Amount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AmountCurrency" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Percentage" Type="Edm.Decimal" Precision="17" Scale="6" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReferenceInterestCode" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReferenceInterestValue" Type="Edm.Decimal" Precision="17" Scale="6" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReferenceInterestMargin" Type="Edm.Decimal" Precision="17" Scale="6" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="isZEROCondition" Type="Edm.Boolean" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GraceDay" Type="Edm.Int16" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
-            <EntityType Name="PaymentParty" sap:label="Loan Counterparty Bank Accounts for Payments" sap:content-version="1">
+            <EntityType Name="PaymentParty" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="ContractID"/>
                     <PropertyRef Name="PartyID"/>
                 </Key>
-                <Property Name="ContractID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Contract ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="PartyID" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Counter Party ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Type Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TypeTxt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PaymentType" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Payment Type Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PaymentTypeTxt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Payment Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="DateValidFrom" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Date Valid From" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="DateValidTo" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Date Valid To" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="DebitCreditCode" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Debit Credit Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="DebitCreditName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Debit Credit Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="AssignmentPercentage" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="6" sap:unicode="false" sap:label="Assignment Percentage" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CounterpartyAccountHolderName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Counterarty Account Holder Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CounterpartyBankAccountID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Counterarty Bank Account ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CounterpartyBankRoutingID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Counterarty Bank Routing ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ContractID" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="PartyID" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TypeTxt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PaymentType" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PaymentTypeTxt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DateValidFrom" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DateValidTo" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DebitCreditCode" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DebitCreditName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AssignmentPercentage" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="6" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CounterpartyAccountHolderName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CounterpartyBankAccountID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CounterpartyBankRoutingID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="CounterpartyBankName" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CounterpartyBankCountryCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Counterarty Bank Country Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CounterpartyBankCountryCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
             <Association Name="OtherPartys" sap:content-version="1">
                 <End Type="BAO.LB_LACOVR_B1_SRV.Contract" Multiplicity="1" Role="FromRole_OtherPartys"/>
@@ -351,25 +358,25 @@
                 <End Type="BAO.LB_LACOVR_B1_SRV.PaymentNote" Multiplicity="*" Role="ToRole_Notes"/>
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Notes">
-                        <PropertyRef Name="ContractID"/>
                         <PropertyRef Name="TransactionID"/>
+                        <PropertyRef Name="ContractID"/>
                     </Principal>
                     <Dependent Role="ToRole_Notes">
-                        <PropertyRef Name="ContractID"/>
                         <PropertyRef Name="TransactionID"/>
+                        <PropertyRef Name="ContractID"/>
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
             <EntityContainer Name="BAO_LB_LACOVR_B1_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
-                <EntitySet Name="OpenItemSet" EntityType="BAO.LB_LACOVR_B1_SRV.OpenItem" sap:label="Loan Open Items" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="OtherPartySet" EntityType="BAO.LB_LACOVR_B1_SRV.OtherParty" sap:label="Loan Other Parties" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="ContractSet" EntityType="BAO.LB_LACOVR_B1_SRV.Contract" sap:label="Loan Contracts" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="BalanceSet" EntityType="BAO.LB_LACOVR_B1_SRV.Balance" sap:label="Loan Balances" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="TransactionSet" EntityType="BAO.LB_LACOVR_B1_SRV.Transaction" sap:label="Loan Transactions" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
-                <EntitySet Name="PaymentNoteSet" EntityType="BAO.LB_LACOVR_B1_SRV.PaymentNote" sap:label="Loan Transactions Payment Notes" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="PaymentPlanItemSet" EntityType="BAO.LB_LACOVR_B1_SRV.PaymentPlanItem" sap:label="Loan Payment Plan" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="ConditionSet" EntityType="BAO.LB_LACOVR_B1_SRV.Condition" sap:label="Loan Pricing and Payment Conditions" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="PaymentPartySet" EntityType="BAO.LB_LACOVR_B1_SRV.PaymentParty" sap:label="Loan Counterparty Bank Accounts for Payments" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="OpenItemSet" EntityType="BAO.LB_LACOVR_B1_SRV.OpenItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="OtherPartySet" EntityType="BAO.LB_LACOVR_B1_SRV.OtherParty" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ContractSet" EntityType="BAO.LB_LACOVR_B1_SRV.Contract" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="BalanceSet" EntityType="BAO.LB_LACOVR_B1_SRV.Balance" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="TransactionSet" EntityType="BAO.LB_LACOVR_B1_SRV.Transaction" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="PaymentNoteSet" EntityType="BAO.LB_LACOVR_B1_SRV.PaymentNote" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PaymentPlanItemSet" EntityType="BAO.LB_LACOVR_B1_SRV.PaymentPlanItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ConditionSet" EntityType="BAO.LB_LACOVR_B1_SRV.Condition" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PaymentPartySet" EntityType="BAO.LB_LACOVR_B1_SRV.PaymentParty" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                 <AssociationSet Name="OtherPartysSet" Association="BAO.LB_LACOVR_B1_SRV.OtherPartys" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="ContractSet" Role="FromRole_OtherPartys"/>
                     <End EntitySet="OtherPartySet" Role="ToRole_OtherPartys"/>
@@ -403,8 +410,9 @@
                     <End EntitySet="ConditionSet" Role="ToRole_Conditions"/>
                 </AssociationSet>
             </EntityContainer>
-            <atom:link rel="self" href="https://bas.cloud:44300/sap/opu/odata/bao/LB_LACOVR_B1_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
-            <atom:link rel="latest-version" href="https://bas.cloud:44300/sap/opu/odata/bao/LB_LACOVR_B1_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <atom:link rel="self" href="https://atx.c4b.sapfioneer.com:44300/sap/opu/odata/bao/LB_LACOVR_B1_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://atx.c4b.sapfioneer.com:44300/sap/opu/odata/bao/LB_LACOVR_B1_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>

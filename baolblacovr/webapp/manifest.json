@@ -1,7 +1,6 @@
 {
-  "_version": "1.3.0",
+  "_version": "1.28.0",
   "sap.app": {
-    "_version": "1.3.0",
     "id": "baolblacovr",
     "type": "application",
     "i18n": "i18n/i18n.properties",
@@ -10,17 +9,29 @@
     },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
+    "resources": "resources.json",
     "sourceTemplate": {
-      "id": "sap.ui.ui5-template-plugin.2masterdetail",
-      "version": "1.34.5"
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.14.4",
+      "toolsId": "3c77e361-5769-49db-a10b-ac07f5b87eb3"
     },
     "dataSources": {
       "mainService": {
-        "uri": "sap/opu/odata/bao/LB_LACOVR_B1_SRV/",
+        "uri": "/sap/opu/odata/bao/LB_LACOVR_B1_SRV/",
         "type": "OData",
         "settings": {
-          "odataVersion": "2.0",
-          "localUri": "localService/metadata.xml"
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "utilitiesService": {
+        "uri": "/sap/opu/odata/bao/AM_BASIC1_UTIL_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/AM_BASIC1_UTIL_SRV/metadata.xml",
+          "odataVersion": "2.0"
         }
       }
     },
@@ -41,7 +52,6 @@
     }
   },
   "sap.ui": {
-    "_version": "1.3.0",
     "technology": "UI5",
     "icons": {
       "icon": "sap-icon://detail-view",
@@ -55,30 +65,29 @@
       "desktop": true,
       "tablet": true,
       "phone": true
-    },
-    "supportedThemes": [
-      "sap_hcb",
-      "sap_bluecrystal"
-    ]
+    }
   },
   "sap.ui5": {
-    "_version": "1.2.0",
-    "flexEnabled": false,
+    "flexEnabled": true,
     "rootView": {
       "viewName": "baolblacovr.view.App",
       "type": "XML",
       "id": "app"
     },
     "dependencies": {
-      "minUI5Version": "1.34.0",
+      "minUI5Version": "1.108.22",
       "libs": {
-        "sap.m": {
-          "minVersion": "1.34.0"
-        },
-        "sap.ui.core": {
-          "minVersion": "1.34.0"
-        },
-        "sap.ui.comp": {}
+        "sap.m": {},
+        "sap.collaboration": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ui.layout": {},
+        "sap.ushell": {},
+        "sap.uxap": {}
       }
     },
     "contentDensities": {
@@ -94,6 +103,14 @@
       },
       "": {
         "dataSource": "mainService",
+        "settings": {
+          "metadataUrlParams": {
+            "sap-documentation": "heading"
+          }
+        }
+      },
+      "utilitiesService": {
+        "dataSource": "utilitiesService",
         "settings": {
           "metadataUrlParams": {
             "sap-documentation": "heading"
@@ -202,16 +219,5 @@
         }
       }
     }
-  },
-  "sap.platform.hcp": {
-    "uri": "",
-    "_version": "1.1.0"
-  },
-  "sap.platform.abap": {
-    "uri": "/sap/bc/ui5_ui5/bao/bp_30grp",
-    "_version": "1.1.0"
-  },
-  "sap.cloud": {
-    "service": "baolblacovr"
   }
 }

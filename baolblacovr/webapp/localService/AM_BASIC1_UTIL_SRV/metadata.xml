@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="BAO_AM_BASIC1_UTIL_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="BankKey" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                    <PropertyRef Name="Country"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="999" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Manager" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Role" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="Product" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                    <PropertyRef Name="Version"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Version" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="ProductCurrency" Relationship="BAO_AM_BASIC1_UTIL_SRV.ProductCurrency" FromRole="FromRole_ProductCurrency" ToRole="ToRole_ProductCurrency"/>
+                <NavigationProperty Name="DefaultCurrency" Relationship="BAO_AM_BASIC1_UTIL_SRV.DefaultCurrency" FromRole="FromRole_DefaultCurrency" ToRole="ToRole_DefaultCurrency"/>
+            </EntityType>
+            <EntityType Name="Currency" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProductID"/>
+                    <PropertyRef Name="ProductVersion"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ProductID" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProductVersion" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="Party" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="PartyID"/>
+                </Key>
+                <Property Name="PartyID" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false"/>
+                <Property Name="PartyTypeCode" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PartyRoleCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PartyName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PartyAddress" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="PaymentItemTransType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ReversalAllowed" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PrenoteRequired" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DisplayPaymentNote" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ReversalReason" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SettlementCondition" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProductID"/>
+                    <PropertyRef Name="AccountHolderID"/>
+                    <PropertyRef Name="ConditionType"/>
+                </Key>
+                <Property Name="ProductID" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="AccountHolderID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="ConditionType" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="ConditionName" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ValidFrom" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValidTo" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Amount" Type="Edm.Float" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AmountUnit" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FreeAmount" Type="Edm.Float" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FreeCount" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Untzeich.INT2/int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaxCount" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Untzeich.INT2/int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="TransactionCondition" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProductID"/>
+                    <PropertyRef Name="AccountHolderID"/>
+                    <PropertyRef Name="ConditionType"/>
+                </Key>
+                <Property Name="ProductID" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="AccountHolderID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="ConditionType" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="ConditionName" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ValidFrom" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValidTo" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Amount" Type="Edm.Float" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AmountUnit" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FreeAmount" Type="Edm.Float" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FreeCount" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Untzeich.INT2/int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaxCount" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Untzeich.INT2/int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="PaymentNoteType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="PrenoteType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DisplayPaymentNote" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="PrenoteNoteType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="PrenoteStatus" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Partner" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CategoryCode" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="CategoryName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TitleTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Address" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="PaymentOrderTransType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SenderAccountID" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ReversalAllowed" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CheckRequired" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="RecipientTransTypes" Relationship="BAO_AM_BASIC1_UTIL_SRV.RecipientTransTypes" FromRole="FromRole_RecipientTransTypes" ToRole="ToRole_RecipientTransTypes"/>
+            </EntityType>
+            <EntityType Name="PaymentOrderRecipientTransType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RecipientID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RecipientID" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Default" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicador" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="CurrencyCode" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="EventCondition" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProductID"/>
+                    <PropertyRef Name="AccountHolderID"/>
+                    <PropertyRef Name="ConditionType"/>
+                </Key>
+                <Property Name="ProductID" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="AccountHolderID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="ConditionType" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="ConditionName" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ValidFrom" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValidTo" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Amount" Type="Edm.Float" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AmountUnit" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FreeAmount" Type="Edm.Float" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FreeCount" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Untzeich.INT2/int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaxCount" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Untzeich.INT2/int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="StandingOrderTransType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="SORecipientTransTypes" Relationship="BAO_AM_BASIC1_UTIL_SRV.SORecipientTransTypes" FromRole="FromRole_SORecipientTransTypes" ToRole="ToRole_SORecipientTransTypes"/>
+            </EntityType>
+            <EntityType Name="StandingOrderRecipientTransType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RecipientID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RecipientID" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Default" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicador" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="PartnerLockEventType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="StatusTxt" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FixedStatus" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DefaultMinDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Cronomarcador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DefaultMaxDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Cronomarcador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="AccountLockEventType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LowerAmount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UpperAmount" Type="Edm.Decimal" Precision="17" Scale="2" sap:unicode="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AmountDependent" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FixedAmount" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="StatusTxt" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FixedStatus" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DefaultMinDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Cronomarcador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DefaultMaxDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Cronomarcador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LockWithPrenote" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PrenoteType" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="LockStatus" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="FrequencyType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="StandingOrderType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="StandingOrderRecipientType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Bank" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BankCountry"/>
+                    <PropertyRef Name="BankRoutingID"/>
+                </Key>
+                <Property Name="BankCountry" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BankRoutingID" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BankDescription" Type="Edm.String" MaxLength="200" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="VH_Currency" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="Currency"/>
+                </Key>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="15" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="ConfigField" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ExternalServiceName"/>
+                </Key>
+                <Property Name="ExternalServiceName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Field" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IsEnabled" Type="Edm.Boolean" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="AccLimitCBType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Alctype"/>
+                </Key>
+                <Property Name="Alctype" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="ClLímiteAcceso" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Alctext" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Den.cl.lím.acc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="PeriodUnitCB" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Valpos"/>
+                </Key>
+                <Property Name="Valpos" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Clave valores" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ddtext" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="AccLimitType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Pltype"/>
+                </Key>
+                <Property Name="Pltype" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="ClLímiteAcceso" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pltext" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Den.cl.lím.acc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="PeriodUnitTB" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Valpos"/>
+                </Key>
+                <Property Name="Valpos" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Clave valores" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ddtext" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="RecipientTransTypes" sap:content-version="1">
+                <End Type="BAO_AM_BASIC1_UTIL_SRV.PaymentOrderTransType" Multiplicity="1" Role="FromRole_RecipientTransTypes"/>
+                <End Type="BAO_AM_BASIC1_UTIL_SRV.PaymentOrderRecipientTransType" Multiplicity="*" Role="ToRole_RecipientTransTypes"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_RecipientTransTypes">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_RecipientTransTypes">
+                        <PropertyRef Name="ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ProductCurrency" sap:content-version="1">
+                <End Type="BAO_AM_BASIC1_UTIL_SRV.Product" Multiplicity="1" Role="FromRole_ProductCurrency"/>
+                <End Type="BAO_AM_BASIC1_UTIL_SRV.Currency" Multiplicity="*" Role="ToRole_ProductCurrency"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ProductCurrency">
+                        <PropertyRef Name="Version"/>
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ProductCurrency">
+                        <PropertyRef Name="ProductVersion"/>
+                        <PropertyRef Name="ProductID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="DefaultCurrency" sap:content-version="1">
+                <End Type="BAO_AM_BASIC1_UTIL_SRV.Product" Multiplicity="1" Role="FromRole_DefaultCurrency"/>
+                <End Type="BAO_AM_BASIC1_UTIL_SRV.Currency" Multiplicity="1" Role="ToRole_DefaultCurrency"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_DefaultCurrency">
+                        <PropertyRef Name="Version"/>
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_DefaultCurrency">
+                        <PropertyRef Name="ProductID"/>
+                        <PropertyRef Name="ProductVersion"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SORecipientTransTypes" sap:content-version="1">
+                <End Type="BAO_AM_BASIC1_UTIL_SRV.StandingOrderTransType" Multiplicity="1" Role="FromRole_SORecipientTransTypes"/>
+                <End Type="BAO_AM_BASIC1_UTIL_SRV.StandingOrderRecipientTransType" Multiplicity="*" Role="ToRole_SORecipientTransTypes"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_SORecipientTransTypes">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_SORecipientTransTypes">
+                        <PropertyRef Name="ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="BAO_AM_BASIC1_UTIL_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="BankKeySet" EntityType="BAO_AM_BASIC1_UTIL_SRV.BankKey" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ManagerSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.Manager" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="RoleSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.Role" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ProductSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.Product" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="CurrencySet" EntityType="BAO_AM_BASIC1_UTIL_SRV.Currency" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PartySet" EntityType="BAO_AM_BASIC1_UTIL_SRV.Party" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PaymentItemTransTypeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.PaymentItemTransType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ReversalReasonSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.ReversalReason" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SettlementConditionSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.SettlementCondition" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="TransactionConditionSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.TransactionCondition" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PaymentNoteTypeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.PaymentNoteType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PrenoteTypeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.PrenoteType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="PrenoteNoteTypeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.PrenoteNoteType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PrenoteStatusSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.PrenoteStatus" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PartnerSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.Partner" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PaymentOrderTransTypeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.PaymentOrderTransType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PaymentOrderRecipientTransTypeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.PaymentOrderRecipientTransType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="CurrencyCodeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.CurrencyCode" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="EventConditionSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.EventCondition" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="StandingOrderTransTypeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.StandingOrderTransType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="StandingOrderRecipientTransTypeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.StandingOrderRecipientTransType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PartnerLockEventTypeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.PartnerLockEventType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="AccountLockEventTypeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.AccountLockEventType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="LockStatusSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.LockStatus" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="FrequencyTypeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.FrequencyType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="StandingOrderTypeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.StandingOrderType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="StandingOrderRecipientTypeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.StandingOrderRecipientType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="BankSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.Bank" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="VH_CurrencySet" EntityType="BAO_AM_BASIC1_UTIL_SRV.VH_Currency" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ConfigFieldSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.ConfigField" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="AccLimitCBTypeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.AccLimitCBType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PeriodUnitCBSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.PeriodUnitCB" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="AccLimitTypeSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.AccLimitType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PeriodUnitTBSet" EntityType="BAO_AM_BASIC1_UTIL_SRV.PeriodUnitTB" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="DefaultCurrencySet" Association="BAO_AM_BASIC1_UTIL_SRV.DefaultCurrency" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ProductSet" Role="FromRole_DefaultCurrency"/>
+                    <End EntitySet="CurrencySet" Role="ToRole_DefaultCurrency"/>
+                </AssociationSet>
+                <AssociationSet Name="RecipientTransTypesSet" Association="BAO_AM_BASIC1_UTIL_SRV.RecipientTransTypes" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="PaymentOrderTransTypeSet" Role="FromRole_RecipientTransTypes"/>
+                    <End EntitySet="PaymentOrderRecipientTransTypeSet" Role="ToRole_RecipientTransTypes"/>
+                </AssociationSet>
+                <AssociationSet Name="SORecipientTransTypesSet" Association="BAO_AM_BASIC1_UTIL_SRV.SORecipientTransTypes" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="StandingOrderTransTypeSet" Role="FromRole_SORecipientTransTypes"/>
+                    <End EntitySet="StandingOrderRecipientTransTypeSet" Role="ToRole_SORecipientTransTypes"/>
+                </AssociationSet>
+                <AssociationSet Name="ProductCurrencySet" Association="BAO_AM_BASIC1_UTIL_SRV.ProductCurrency" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ProductSet" Role="FromRole_ProductCurrency"/>
+                    <End EntitySet="CurrencySet" Role="ToRole_ProductCurrency"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <atom:link rel="self" href="https://atx.c4b.sapfioneer.com:44300/sap/opu/odata/bao/AM_BASIC1_UTIL_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://atx.c4b.sapfioneer.com:44300/sap/opu/odata/bao/AM_BASIC1_UTIL_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
