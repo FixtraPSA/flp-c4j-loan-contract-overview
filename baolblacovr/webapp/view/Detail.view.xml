@@ -3,8 +3,8 @@
     <semantic:content>
       <ObjectHeader id="objectHeader" intro="{ProductTxt} - { path: 'StartDate', formatter: '.formatter.formatDate'}" title="{path:'BankAccountID',type : 'sap.ui.model.odata.type.String', constraints: { isDigitSequence : true, maxLength : 9 } } - {BorrowerTxt}" number="{ path: 'OutstandingBalance', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 } }" numberUnit="{i18n>OutstandingBalance} {Currency}" class="sapUiNoMargin" numberState="{= ${OutstandingBalance} &lt; 0 ? 'Error' : ${OutstandingBalance} &gt; 0 ? 'Success' : 'None' }" backgroundDesign="Solid">
         <attributes>
-          <ObjectAttribute id="ClabeAccount_id" text="{ClabeAccount}" title="{i18n>CLABEAccount}"/>
-          <ObjectAttribute id="IndirectAccount" text="{IndirectAccount}" title="{i18n>IndirectAccount}"/>
+          <!-- <ObjectAttribute id="ClabeAccount_id" text="{ClabeAccount}" title="{i18n>CLABEAccount}"/> -->
+          <!-- <ObjectAttribute id="IndirectAccount" text="{IndirectAccount}" title="{i18n>IndirectAccount}"/> -->
           <!--<ObjectAttribute id="AlternativeID_id"
             text="{ClabeAccount}"
             title="{i18n>AlternativeID}" />-->
@@ -33,7 +33,7 @@
           <ObjectStatus id="LifeCycleStatusName" title="{i18n>LifeCycleStatusTxt}" text="{LifeCycleStatusTxt}" state="{= ${LifeCycleStatus} === '20' ? 'Warning' : ${LifeCycleStatus} === '30' ? 'Success' : 'Error' }" icon="{= ${LifeCycleStatus} === '20' ? 'sap-icon://warning2' : ${LifeCycleStatus} === '30' ? 'sap-icon://status-positive' : 'sap-icon://alert' }"/>
           <ObjectStatus id="AccountLocked" title="{i18n>LockStatus}" text="{i18n>Locked}" state="{= ${AccountLocked} === true ? 'Error' : 'Success' }" icon="{= ${AccountLocked} === true ? 'sap-icon://alert' : 'sap-icon://status-positive' }" visible="{AccountLocked}"/>
           <ObjectStatus id="CurrentPostingDate_id" title="{i18n>CurrentPostingDate}" text="{ path: 'CurrentPostingDate', formatter: '.formatter.formatDate'}" state="Information" active="true"/>
-          <ObjectStatus id="CAT_id" title="{i18n>CAT}" text="{CAT}%" state="Information" active="true"/>
+          <!-- <ObjectStatus id="CAT_id" title="{i18n>CAT}" text="{CAT}%" state="Information" active="true"/> -->
         </statuses>
         <additionalNumbers>
           <ObjectNumber id="CurrentOpenItemsAmount" number="{ path: 'CurrentOpenItemsAmount', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 } }" state="{= ${CurrentOpenItemsAmount} &gt; 0 ? 'Warning' : ${EffectiveCapital} &lt; 0 ? 'Success' : 'None' }" unit="{i18n>CurrentOpenItems} {Currency}"/>
