@@ -288,6 +288,18 @@ sap.ui.define(
 			_onObjectMatched: function (oEvent) {
 				var sObjectId = oEvent.getParameter("arguments").objectId;
 				this.sObjectId = sObjectId;
+
+				const sPath = "/ContractSet('" + sObjectId + "')";
+				this.getModel().read(sPath, {
+					success: (oData) => {
+						const oJsonModel = new sap.ui.model.json.JSONModel(oData);
+						this.getView().setModel(oJsonModel, "ContractDetails");
+					},
+					error: (oError) => {
+						console.error(oError);
+					}
+				});
+
 				this.getModel()
 					.metadataLoaded()
 					.then(
@@ -360,6 +372,7 @@ sap.ui.define(
 					sObjectName = oObject.Party,
 					oViewModel = this.getModel("detailView");
 
+
 				this.getOwnerComponent().oListSelector.selectAListItem(sPath);
 
 				oViewModel.setProperty(
@@ -379,6 +392,8 @@ sap.ui.define(
 						location.href,
 					])
 				);
+
+
 			},
 
 			_onMetadataLoaded: function () {
@@ -407,6 +422,7 @@ sap.ui.define(
 				// Restore original busy indicator delay for the detail view
 				oViewModel.setProperty("/delay", iOriginalViewBusyDelay);
 			},
+			
 			handelTabBarSelect: function (oEvent) {
 				var selectedKey = oEvent.getParameters().selectedKey;
 				var propertyName;
@@ -471,6 +487,7 @@ sap.ui.define(
 							}
 						}
 						break;
+
 					case "Conditions":
 						// make the filter & sorter button disappeared.
 						this.getView().byId("idSortBT").setVisible(false);
@@ -956,8 +973,6 @@ sap.ui.define(
 				}
 
 			}
-
-
 		});
 	}
 );
