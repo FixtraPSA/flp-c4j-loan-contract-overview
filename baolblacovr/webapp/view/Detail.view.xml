@@ -518,34 +518,37 @@
                 </ColumnListItem>
               </items>
             </Table>
-          </IconTabFilter>
-          <IconTabFilter key="Collaterals"
-            icon="sap-icon://insurance-house"
-            tooltip="{i18n>detailIconTabBarCollaterals}"
-            text="{i18n>detailIconTabBarCollaterals}">
-            <Table width="100%"
-              items="{Collaterals>/Collaterals}"
-              noDataText="{i18n>detailLineItemTableNoDataText}"
-              busyIndicatorDelay="{detailView>/lineItemTableDelay}"
-              class="sapUiResponsiveMargin">
+          </IconTabFilter> -->
+          <IconTabFilter id="iconTabBarCollaterals" key="Collaterals" icon="sap-icon://insurance-house" text="{i18n>collaterals}">
+            <Table id="lineItemsListCollaterals" width="auto" items="{Collaterals}" noDataText="{i18n>detailLineItemTableNoDataText}"
+              busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
               <columns>
-                <Column>
-                  <Label text="{i18n>ObjectNumber}" />
+								<Column>
+                  <Text text="Type"/>
                 </Column>
                 <Column>
-                  <Label text="{i18n>AgreementNumber}" />
+                  <Text text="Description"/>
+                </Column>
+                <Column>
+                  <Text text="Amount"/>
                 </Column>
               </columns>
               <items>
-                <ColumnListItem>
-                  <cells>
-                    <Text text="{Collaterals>ObjectNumber}" />
-                    <Text text="{Collaterals>AgreementNumber}" />
-                  </cells>
-                </ColumnListItem>
-              </items>
-            </Table>
-          </IconTabFilter>-->
+                <ColumnListItem vAlign="Middle">
+                <cells>
+									<Text text="{CagTypeText}"/>
+                  <Text text="{Description}"/>
+                  <ObjectNumber 
+                    number="{ parts:[{path:'Amount'}, {path:'Currency'}],
+                              type: 'sap.ui.model.type.Currency',
+                              formatOptions: {showMeasure: false}
+                            }"
+                    unit="{Currency}"/>
+                </cells>
+              </ColumnListItem>
+            </items>
+          </Table>
+          </IconTabFilter>
         </items>
       </IconTabBar>
     </semantic:content>
