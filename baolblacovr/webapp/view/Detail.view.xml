@@ -429,20 +429,20 @@
             <f:SimpleForm editable="false" layout="ResponsiveGridLayout" id="AdditionalDetails" labelSpanS="5" emptySpanS="0" columnsM="2" labelSpanM="5" emptySpanM="0" columnsL="2" labelSpanL="5" emptySpanL="0" columnsXL="2" labelSpanXL="5" emptySpanXL="0">
               <!--Additional Details - LEFT Column-->
               <Toolbar visible="false"/>
-              <Label text="{i18n>OverdueDays}"/>
+              <!-- <Label text="{i18n>OverdueDays}"/>
               <ObjectStatus text="{OverdueDays}" state="Information"/>
               <Label text="{i18n>PendingPayments}"/>
-              <ObjectStatus text="{path:'PendingPayments', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 0 } }" state="Information"/>
+              <ObjectStatus text="{path:'PendingPayments', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 0 } }" state="Information"/> -->
               <Label text="{i18n>SalesProduct}"/>
               <ObjectStatus text="{SalesProductTxt}" state="Information"/>
               <!--Additional Details - RIGHT Column-->
               <Toolbar visible="false"/> 
               <Label text="{i18n>ContractPurpose}"/>
-              <ObjectStatus text="{ContractPurpose}" state="Information"/>
-              <Label text="{i18n>HardshipStatus}"/>
+              <ObjectStatus text="{ContractPurposeTxt}" state="Information"/>
+              <!-- <Label text="{i18n>HardshipStatus}"/>
               <ObjectStatus text="{HardshipStatus}" state="Information"/>
               <Label text="{i18n>AdditionalField}"/>
-              <ObjectStatus text="{Warehouse}" state="Information"/>
+              <ObjectStatus text="{Warehouse}" state="Information"/> -->
             </f:SimpleForm>
           </IconTabFilter>
           <!--<IconTabFilter key="Dispersion"
