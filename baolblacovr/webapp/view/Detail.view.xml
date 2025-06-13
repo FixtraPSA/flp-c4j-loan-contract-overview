@@ -210,7 +210,7 @@
                 <ColumnListItem>
                   <cells>
                     <ObjectIdentifier text="{Balances>Name}"/>
-                    <ObjectNumber number="{ path: 'Balances>Amount', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 } }" unit="{Balances>Currency}" state="{= ${Balances>Amount} &lt; 0 ? 'Error' : ${Amount} &gt; 0 ? 'Success' : 'None' }"/>
+                    <ObjectNumber number="{ path: 'Balances>Amount', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 } }" unit="{= ${Balances>Currency} ? ${Balances>Currency} : ${Currency} }" state="{= ${Balances>Amount} &lt; 0 ? 'Error' : ${Balances>Amount} &gt; 0 ? 'Success' : 'None' }"/>
                   </cells>
                 </ColumnListItem>
               </items>

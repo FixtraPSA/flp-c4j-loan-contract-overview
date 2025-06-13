@@ -300,16 +300,12 @@ sap.ui.define(
 					}
 				});
 
-				this.getModel()
-					.metadataLoaded()
-					.then(
-						function () {
-							var sObjectPath = this.getModel().createKey("ContractSet", {
-								ID: sObjectId,
-							});
-							this._bindView("/" + sObjectPath);
-						}.bind(this)
-					);
+				this.getModel().metadataLoaded().then(function () {
+				var sObjectPath = this.getModel().createKey("ContractSet", {
+					ID: sObjectId
+				});
+				this._bindView("/" + sObjectPath);
+				}.bind(this));
 				// set the transaction tab bar as default
 				if (this.getView().byId("iconTabBar")) {
 					this.getView().byId("iconTabBar").setSelectedKey("Transaction");
@@ -332,7 +328,7 @@ sap.ui.define(
 
 				// If the view was not bound yet its not busy, only if the binding requests data it is set to busy again
 				oViewModel.setProperty("/busy", false);
-
+				
 				this.getView().bindElement({
 					path: sObjectPath,
 					events: {
