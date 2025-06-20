@@ -3,17 +3,8 @@
     <semantic:content>
       <ObjectHeader id="objectHeader" intro="{ProductTxt} - { path: 'StartDate', formatter: '.formatter.formatDate'}" title="{path:'BankAccountID',type : 'sap.ui.model.odata.type.String', constraints: { isDigitSequence : true, maxLength : 9 } } - {BorrowerTxt}" number="{ path: 'OutstandingBalance', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 } }" numberUnit="{i18n>OutstandingBalance} {Currency}" class="sapUiNoMargin" numberState="{= ${OutstandingBalance} &lt; 0 ? 'Error' : ${OutstandingBalance} &gt; 0 ? 'Success' : 'None' }" backgroundDesign="Solid">
         <attributes>
-          <ObjectAttribute id="ClabeAccount_id" text="{ClabeAccount}" title="{i18n>CLABEAccount}"/>
-          <ObjectAttribute id="IndirectAccount" text="{IndirectAccount}" title="{i18n>IndirectAccount}"/>
-          <!--<ObjectAttribute id="AlternativeID_id"
-            text="{ClabeAccount}"
-            title="{i18n>AlternativeID}" />-->
           <ObjectAttribute id="ManagerBPA_id" text="{ManagerTxt} | {BankPostingAreaTxt}" title="{i18n>Manager}"/>
-          <!--
-          <ObjectAttribute title="BPAY Reference ID, Biller Code"
-            text="{AdditionalData/BPAYReferenceID}, {AdditionalData/BPAYBillerCode}"
-            active="true"/>
-          -->
+
           <ObjectAttribute id="AccountHolderID" text="{ path: 'BorrowerID', type : 'sap.ui.model.odata.type.String', constraints: { isDigitSequence : true, maxLength : 10 } }" title="{i18n>AccountHolderID}"/>
           <ObjectAttribute id="PaymentPlanInterval" text="{ path: 'PaymentPlanStartDate', formatter: '.formatter.formatDate'} - { path: 'PaymentPlanEndDate', formatter: '.formatter.formatDate'}" title="{i18n>PaymentPlanInterval}" active="false"/>
 					<ObjectAttribute title="{i18n>Disbursement}" active="false" text="{         parts: [         {path: 'IsExternalDisbursement'},         {path: 'i18n>External'},         {path: 'i18n>Internal'}        ],        formatter: '.formatter.formatBoolean'}"/>
@@ -24,16 +15,9 @@
           <ObjectStatus title="{i18n>BalanceDistributed}" state="Information" text="{ path: 'BalanceToBeDistributed', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 } } {Currency}"/>
           <ObjectStatus id="RepaymentAmount_id" title="{i18n>RepaymentAmount}" text="{ path: 'RepaymentAmount', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 } } {Currency}" state="Information" active="true" press="nav2DirectPaymentApp"/>
           <ObjectStatus id="MainInterestRates_id" title="{i18n>MainInterestRates}" text="{ path: 'NominalInterestRate', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 3 } } % / { path: 'EffectiveYieldPercentage', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 3 } } %" state="Information" active="true" press="nav2ConditionChangeApp"/>
-          <!--
-          <ObjectStatus id="EffectiveYieldPercentage_id"
-            title="{i18n>EffectiveYieldPercentage}"
-            text="{EffectiveYieldPercentage} %"
-            state="Information" active="true"/>
-          -->
           <ObjectStatus id="LifeCycleStatusName" title="{i18n>LifeCycleStatusTxt}" text="{LifeCycleStatusTxt}" state="{= ${LifeCycleStatus} === '20' ? 'Warning' : ${LifeCycleStatus} === '30' ? 'Success' : 'Error' }" icon="{= ${LifeCycleStatus} === '20' ? 'sap-icon://warning2' : ${LifeCycleStatus} === '30' ? 'sap-icon://status-positive' : 'sap-icon://alert' }"/>
           <ObjectStatus id="AccountLocked" title="{i18n>LockStatus}" text="{i18n>Locked}" state="{= ${AccountLocked} === true ? 'Error' : 'Success' }" icon="{= ${AccountLocked} === true ? 'sap-icon://alert' : 'sap-icon://status-positive' }" visible="{AccountLocked}"/>
           <ObjectStatus id="CurrentPostingDate_id" title="{i18n>CurrentPostingDate}" text="{ path: 'CurrentPostingDate', formatter: '.formatter.formatDate'}" state="Information" active="true"/>
-          <ObjectStatus id="CAT_id" title="{i18n>CAT}" text="{CAT}%" state="Information" active="true"/>
         </statuses>
         <additionalNumbers>
           <ObjectNumber id="CurrentOpenItemsAmount" number="{ path: 'CurrentOpenItemsAmount', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 } }" state="{= ${CurrentOpenItemsAmount} &gt; 0 ? 'Warning' : ${EffectiveCapital} &lt; 0 ? 'Success' : 'None' }" unit="{i18n>CurrentOpenItems} {Currency}"/>
@@ -226,7 +210,7 @@
                 <ColumnListItem>
                   <cells>
                     <ObjectIdentifier text="{Balances>Name}"/>
-                    <ObjectNumber number="{ path: 'Balances>Amount', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 } }" unit="{Balances>Currency}" state="{= ${Balances>Amount} &lt; 0 ? 'Error' : ${Amount} &gt; 0 ? 'Success' : 'None' }"/>
+                    <ObjectNumber number="{ path: 'Balances>Amount', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 } }" unit="{= ${Balances>Currency} ? ${Balances>Currency} : ${Currency} }" state="{= ${Balances>Amount} &lt; 0 ? 'Error' : ${Balances>Amount} &gt; 0 ? 'Success' : 'None' }"/>
                   </cells>
                 </ColumnListItem>
               </items>
@@ -327,8 +311,6 @@
             <f:SimpleForm editable="false" layout="ResponsiveGridLayout" id="ContractDetails" labelSpanS="7" emptySpanS="0" columnsM="2" labelSpanM="7" emptySpanM="0" columnsL="2" labelSpanL="7" emptySpanL="0" columnsXL="2" labelSpanXL="7" emptySpanXL="0">
               <!--Contract Details - LEFT Column-->
               <Toolbar visible="false"/>
-              <Label text="{i18n>LoanPurpose}"/>
-              <ObjectStatus text="{path:'Purpose'}" state="Information"/>
               <Label text="{i18n>TermAgreementFixingPeriodStartDate}"/>
               <ObjectStatus text="{path:'TermAgreementFixingPeriodStartDate', formatter:'.formatter.formatDate'}" state="Information"/>
               <Label text="{i18n>TermAgreementFixingPeriodEndDate}"/>
@@ -337,10 +319,6 @@
               <ObjectStatus text="{ path: 'TermSpecificationValidityPeriodDuration', formatter: '.formatter.formatPeriod' }" state="Information"/>
               <Label text="{i18n>TermAgreementCommittedCapitalAmount}"/>
               <ObjectStatus text="{path:'TermAgreementCommittedCapitalAmount', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 } }" state="Information"/>
-              <Label text="{i18n>TermAgreementFixingPeriodStartDate}"/>
-              <ObjectStatus text="{path:'TermAgreementFixingPeriodStartDate', formatter:'.formatter.formatDate'}" state="Information"/>
-              <Label text="{i18n>TermAgreementFixingPeriodEndDate}"/>
-              <ObjectStatus text="{path:'TermAgreementFixingPeriodEndDate', formatter:'.formatter.formatDate'}" state="Information"/>
               <Label text="{i18n>PaymentPlanStartDate}"/>
               <ObjectStatus text="{path:'PaymentPlanStartDate', formatter:'.formatter.formatDate'}" state="Information"/>
               <Label text="{i18n>PaymentPlanEndDate}"/>
@@ -451,43 +429,20 @@
             <f:SimpleForm editable="false" layout="ResponsiveGridLayout" id="AdditionalDetails" labelSpanS="5" emptySpanS="0" columnsM="2" labelSpanM="5" emptySpanM="0" columnsL="2" labelSpanL="5" emptySpanL="0" columnsXL="2" labelSpanXL="5" emptySpanXL="0">
               <!--Additional Details - LEFT Column-->
               <Toolbar visible="false"/>
-              <Label text="{i18n>PortfolioType}"/>
-              <ObjectStatus text="{path:'PortfolioTypeTxt'}" state="Information"/>
-              <Label text="{i18n>StageLevel}"/>
-              <ObjectStatus text="{path:'StageLevelTxt'}" state="Information"/>
-              <Label text="{i18n>OverdueDays}"/>
-              <ObjectStatus text="{path:'OverdueDays'}" state="Information"/>
+              <!-- <Label text="{i18n>OverdueDays}"/>
+              <ObjectStatus text="{OverdueDays}" state="Information"/>
               <Label text="{i18n>PendingPayments}"/>
-              <ObjectStatus text="{path:'PendingPayments', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 0 } }" state="Information"/>
-              <Label text="{i18n>EvaluationDate}"/>
-              <ObjectStatus text="{path:'EvaluationDate', formatter:'.formatter.formatDate'}" state="Information"/>
+              <ObjectStatus text="{path:'PendingPayments', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 0 } }" state="Information"/> -->
               <Label text="{i18n>SalesProduct}"/>
-              <ObjectStatus text="{path:'SalesProductTxt'}" state="Information"/>
-              <Label text="{i18n>Sector}"/>
-              <ObjectStatus text="{path:'SectorSalesProductTxt'}" state="Information"/>
+              <ObjectStatus text="{SalesProductTxt}" state="Information"/>
               <!--Additional Details - RIGHT Column-->
-              <Toolbar visible="false"/>
-              <Label text="{i18n>IndicatorFECI}"/>
-              <ObjectStatus text="{path:'IndicatorFECITxt'}" state="Information"/>
-              <Label text="{i18n>IndicatorPreferential}"/>
-              <ObjectStatus text="{path:'IndicatorPreferentialTxt'}" state="Information"/>
-              <Label text="{i18n>RolloverCategory}"/>
-              <ObjectStatus text="{path:'RolloverCategoryTxt'}" state="Information"/>
-              <Label text="{i18n>RolloverDate}"/>
-              <ObjectStatus text="{path:'RolloverDate', formatter:'.formatter.formatDate'}" state="Information"/>
-              <Label text="{i18n>RolloverAccount}"/>
-              <ObjectStatus text="{path:'RolloverAccount'}" state="Information"/>
-              <Label text="{i18n>InsuranceCertificate}"/>
-              <ObjectStatus text="{path:'InsCertificate'}" state="Information"/>
-              <Label text="{i18n>PrepaymentOption}"/>
-              <ObjectStatus text="{path:'PaymentPlanControl'}" state="Information"/>
-                
-              <!--
-                <Label text="{i18n>ObservationKey}" />
-                <ObjectStatus text="{path:'ObservationKeyTxt'}" state="Information" />
-                <Label text="{i18n>PaymentForm}" />
-                <ObjectStatus text="{path:'PaymentFormTxt'}" state="Information" />
-                -->
+              <Toolbar visible="false"/> 
+              <Label text="{i18n>ContractPurpose}"/>
+              <ObjectStatus text="{ContractPurposeTxt}" state="Information"/>
+              <!-- <Label text="{i18n>HardshipStatus}"/>
+              <ObjectStatus text="{HardshipStatus}" state="Information"/>
+              <Label text="{i18n>AdditionalField}"/>
+              <ObjectStatus text="{Warehouse}" state="Information"/> -->
             </f:SimpleForm>
           </IconTabFilter>
           <!--<IconTabFilter key="Dispersion"
@@ -563,34 +518,37 @@
                 </ColumnListItem>
               </items>
             </Table>
-          </IconTabFilter>
-          <IconTabFilter key="Collaterals"
-            icon="sap-icon://insurance-house"
-            tooltip="{i18n>detailIconTabBarCollaterals}"
-            text="{i18n>detailIconTabBarCollaterals}">
-            <Table width="100%"
-              items="{Collaterals>/Collaterals}"
-              noDataText="{i18n>detailLineItemTableNoDataText}"
-              busyIndicatorDelay="{detailView>/lineItemTableDelay}"
-              class="sapUiResponsiveMargin">
+          </IconTabFilter> -->
+          <IconTabFilter id="iconTabBarCollaterals" key="Collaterals" icon="sap-icon://insurance-house" text="{i18n>collaterals}">
+            <Table id="lineItemsListCollaterals" width="auto" items="{Collaterals}" noDataText="{i18n>detailLineItemTableNoDataText}"
+              busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
               <columns>
-                <Column>
-                  <Label text="{i18n>ObjectNumber}" />
+								<Column>
+                  <Text text="Type"/>
                 </Column>
                 <Column>
-                  <Label text="{i18n>AgreementNumber}" />
+                  <Text text="Description"/>
+                </Column>
+                <Column>
+                  <Text text="Amount"/>
                 </Column>
               </columns>
               <items>
-                <ColumnListItem>
-                  <cells>
-                    <Text text="{Collaterals>ObjectNumber}" />
-                    <Text text="{Collaterals>AgreementNumber}" />
-                  </cells>
-                </ColumnListItem>
-              </items>
-            </Table>
-          </IconTabFilter>-->
+                <ColumnListItem vAlign="Middle">
+                <cells>
+									<Text text="{CagTypeText}"/>
+                  <Text text="{Description}"/>
+                  <ObjectNumber 
+                    number="{ parts:[{path:'Amount'}, {path:'Currency'}],
+                              type: 'sap.ui.model.type.Currency',
+                              formatOptions: {showMeasure: false}
+                            }"
+                    unit="{Currency}"/>
+                </cells>
+              </ColumnListItem>
+            </items>
+          </Table>
+          </IconTabFilter>
         </items>
       </IconTabBar>
     </semantic:content>
