@@ -16,7 +16,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "sap/opu/odata/bao/LB_LACOVR_B1_SRV/",
+        "uri": "sap/opu/odata/C4J/LACOVR_B1_SRV/",
         "type": "OData",
         "settings": {
           "odataVersion": "2.0",

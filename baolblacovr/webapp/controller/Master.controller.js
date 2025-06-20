@@ -300,7 +300,7 @@ sap.ui.define([
 			// FA2A FioriAppToApp -> show only Bank Account of passed account number
 			var contractID = this._FA2A_getContractID();
 			if (contractID) {
-				var accountID = contractID.split("-")[0];
+				var accountID = contractID.split("-")[2]; 
 				var myFilter = [new sap.ui.model.Filter("BankAccountID", sap.ui.model.FilterOperator.EQ, accountID)];
 				this._oList.getBinding("items").filter(myFilter, "Application");
 			}
@@ -398,9 +398,8 @@ sap.ui.define([
 			if (oMyComponent && oMyComponent.getComponentData()) {
 				aStartupParameters = oMyComponent.getComponentData().startupParameters;
 				if (aStartupParameters) {
-					if (aStartupParameters.ContractID && aStartupParameters.ContractID[0]) {
-						var list = aStartupParameters.ContractID[0].split(/\ +/);
-						var contractID = list[0];
+					if (aStartupParameters.contractID && aStartupParameters.contractID[0]) {
+						var contractID = aStartupParameters.contractID[0];
 					}
 					return contractID;
 				}
