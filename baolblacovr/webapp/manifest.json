@@ -56,10 +56,7 @@
       "tablet": true,
       "phone": true
     },
-    "supportedThemes": [
-      "sap_hcb",
-      "sap_bluecrystal"
-    ]
+    "supportedThemes": ["sap_hcb", "sap_bluecrystal"]
   },
   "sap.ui5": {
     "_version": "1.2.0",
@@ -116,10 +113,7 @@
         "controlId": "idAppControl",
         "controlAggregation": "detailPages",
         "bypassed": {
-          "target": [
-            "master",
-            "notFound"
-          ]
+          "target": ["master", "notFound"]
         },
         "async": true
       },
@@ -127,37 +121,25 @@
         {
           "pattern": "",
           "name": "master",
-          "target": [
-            "object",
-            "master"
-          ]
+          "target": ["object", "master"]
         },
         {
           "pattern": "BankAccountContractSet/{objectId}",
           "name": "object",
-          "target": [
-            "master",
-            "object"
-          ]
+          "target": ["master", "object"]
         },
         {
           "name": "transaction",
           "pattern": "BankAccountEntrySet/{idkey}",
           "greedy": false,
-          "target": [
-            "object",
-            "transaction"
-          ]
+          "target": ["object", "transaction"]
         },
         {
           "name": "prenote",
           "pattern": "BankAccountPrenoteEntrySet/{idkeypn}",
           "titleTarget": "",
           "greedy": false,
-          "target": [
-            "object",
-            "prenote"
-          ]
+          "target": ["object", "prenote"]
         }
       ],
       "targets": {

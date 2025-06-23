@@ -18,7 +18,7 @@ server:
         backend:
           - path: /sap
             url: http://bas.cloud:44300
-            client: '110'
+            client: "110"
             destination: corebanking01
     - name: fiori-tools-appreload
       afterMiddleware: compression

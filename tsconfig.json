@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "none",
+    "noEmit": true,
+    "checkJs": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "types": ["@sapui5/ts-types", "@types/jquery", "@types/qunit"],
+    "lib": ["es2015", "es2016", "dom"]
+  }
+}

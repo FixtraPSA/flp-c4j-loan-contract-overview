@@ -6,10 +6,31 @@
     "clean": "rimraf resources mta_archives mta-op*",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
-    "undeploy": "cf undeploy baolblacovr --delete-services --delete-service-keys --delete-service-brokers"
+    "undeploy": "cf undeploy baolblacovr --delete-services --delete-service-keys --delete-service-brokers",
+    "prepare": "husky",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "ts-typecheck": "tsc --noEmit",
+    "build:mta": "rimraf resources mta_archives && mbt build"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@eslint/js": "^9.29.0",
+    "@prettier/plugin-xml": "^3.4.1",
+    "@sapui5/ts-types": "^1.136.2",
+    "@sapui5/types": "^1.136.2",
+    "@types/jquery": "^3.5.32",
+    "@types/qunit": "^2.19.12",
+    "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.5",
+    "globals": "^16.2.0",
+    "husky": "^9.1.7",
     "mbt": "^1.2.27",
-    "rimraf": "^5.0.5"
+    "prettier": "^3.6.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.8.3"
   }
 }
