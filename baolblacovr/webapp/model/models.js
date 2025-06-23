@@ -11,6 +11,7 @@ sap.ui.define(
       },
 
       createFLPModel: function () {
+        // @ts-ignore
         const fnGetuser = jQuery.sap.getObject("sap.ushell.Container.getUser"),
           bIsShareInJamActive = fnGetuser ? fnGetuser().isJamActive() : false,
           oModel = new JSONModel({

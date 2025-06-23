@@ -91,6 +91,7 @@ sap.ui.define(
         if (!this._oBootstrapFinished) {
           this._oBootstrapFinished = sap.ushell.bootstrap("local");
           this._oBootstrapFinished.then(function () {
+            // @ts-ignore
             sap.ushell.Container.createRenderer().placeAt("content");
           });
         }
