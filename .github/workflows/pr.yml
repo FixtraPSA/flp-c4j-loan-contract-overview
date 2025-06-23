@@ -6,7 +6,13 @@ on:
 
 jobs:
   typecheck:
+    uses: ./.github/workflows/typecheck.yml
+
+  format:
     uses: ./.github/workflows/format-check.yml
+
+  lint:
+    uses: ./.github/workflows/lint.yml
 
   build-check:
     uses: ./.github/workflows/build-check.yml
