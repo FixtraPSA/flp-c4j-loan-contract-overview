@@ -1,0 +1,40 @@
+name: Attach MTAR to latest release
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build:mta
+
+      - name: Prepare mtar
+        run: |
+          ID=$(grep -E '^ID:' mta.yaml | sed 's/^ID:[[:space:]]*//')
+          VERSION=$(grep -E '^version:' mta.yaml | sed 's/^version:[[:space:]]*//')
+          FILENAME="${ID}_${VERSION}.mtar"
+          ORIGINAL=$(find mta_archives -name "*.mtar" | head -n 1)
+
+          echo "FILENAME=$FILENAME" >> $GITHUB_ENV
+
+      - name: Upload asset to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: mta_archives/${{ env.FILENAME }}
+          tag_name: ${{github.event.release.tag_name}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
